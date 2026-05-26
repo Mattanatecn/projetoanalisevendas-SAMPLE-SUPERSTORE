@@ -32,7 +32,7 @@ Este arquivo registra a evolução do projeto, as decisões tomadas e os aprendi
 - Transformar a análise de "Tabelas" em um insight visual no dashboard.
 
 
-## 📅 2026-05-22 - Dia 3: Finalização do Dashboard e Storytelling de Dados
+## 📅 2026-05-22 - Dia 2: Finalização do Dashboard e Storytelling de Dados
 
 ### 🎯 Objetivos do Dia
 - Finalizar a camada visual do Dashboard Executivo.
@@ -58,3 +58,37 @@ Este arquivo registra a evolução do projeto, as decisões tomadas e os aprendi
 - Replicar a lógica de análise usando **Python e Pandas**.
 - Evoluir as visualizações para bibliotecas interativas (**Plotly/Seaborn**).
 - Transformar a análise em um Web App utilizando **Streamlit**.
+            
+## 📅 2026-05-26 — Dia 3: Configuração de Ambiente e Versionamento Profissional
+
+### 🎯 Objetivos do Dia
+
+- Migrar o projeto para o VS Code.
+- Estabelecer uma arquitetura de pastas profissional.
+- Configurar ambiente virtual Python e versionamento com Git/GitHub.
+
+### 🛠️ Atividades Realizadas
+
+**Arquitetura de Projeto**
+Implementação de uma estrutura de pastas organizada (`dados/`, `notebooks/`, `src/`, `dashboard/`, `imagens/`) para separação de responsabilidades.
+
+**Ambiente de Desenvolvimento**
+
+- Criação e ativação de ambiente virtual (`.venv`) para isolamento de dependências.
+- Instalação das principais bibliotecas de análise de dados:
+  `pandas`, `matplotlib`, `seaborn`, `plotly` e `streamlit`.
+
+**Versionamento Profissional**
+
+- Configuração do arquivo `.gitignore` para evitar upload de arquivos desnecessários, como a pasta `.venv`.
+- Inicialização do repositório Git e realização do primeiro commit da estrutura do projeto.
+- Conexão e envio do projeto para um repositório remoto no GitHub.
+
+**Organização de Dados**
+Migração do dataset original e do arquivo de análise em Excel para a pasta `dados/bruto`.
+
+### 🚀 Próximos Passos
+
+- Iniciar a exploração de dados via Jupyter Notebook (`exploracao.ipynb`).
+- Traduzir a lógica de análise do Excel para Pandas utilizando `groupby`, filtros e agregações.
+- Replicar a análise de “Causa Raiz” das mesas utilizando código Python.
