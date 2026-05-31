@@ -21,7 +21,7 @@ Este arquivo registra a evolução do projeto, as decisões tomadas e os aprendi
     - Cruzamento de dados entre `Discount` e `Profit`, provando que descontos acima de 0% em Mesas resultam em lucro negativo.
 
 ### 💡 Principais Insights
-- ** la a "Causa Raiz":** O prejuízo em Mesas não é necessariamente logístico, mas sim estratégico (descontos agressivos que anulam a margem de lucro).
+- **Causa Raiz:** O prejuízo em Mesas não é necessariamente logístico, mas sim estratégico (descontos agressivos que anulam a margem de lucro).
 - **Recomendação de Negócio:** Interrupção imediata de promoções agressivas em Mesas e revisão do preço de venda para cobrir custos.
 
 ### 🚧 Bloqueios e Dificuldades
@@ -73,13 +73,11 @@ Este arquivo registra a evolução do projeto, as decisões tomadas e os aprendi
 Implementação de uma estrutura de pastas organizada (`dados/`, `notebooks/`, `src/`, `dashboard/`, `imagens/`) para separação de responsabilidades.
 
 **Ambiente de Desenvolvimento**
-
 - Criação e ativação de ambiente virtual (`.venv`) para isolamento de dependências.
 - Instalação das principais bibliotecas de análise de dados:
   `pandas`, `matplotlib`, `seaborn`, `plotly` e `streamlit`.
 
 **Versionamento Profissional**
-
 - Configuração do arquivo `.gitignore` para evitar upload de arquivos desnecessários, como a pasta `.venv`.
 - Inicialização do repositório Git e realização do primeiro commit da estrutura do projeto.
 - Conexão e envio do projeto para um repositório remoto no GitHub.
@@ -88,7 +86,38 @@ Implementação de uma estrutura de pastas organizada (`dados/`, `notebooks/`, `
 Migração do dataset original e do arquivo de análise em Excel para a pasta `dados/bruto`.
 
 ### 🚀 Próximos Passos
-
 - Iniciar a exploração de dados via Jupyter Notebook (`exploracao.ipynb`).
 - Traduzir a lógica de análise do Excel para Pandas utilizando `groupby`, filtros e agregações.
 - Replicar a análise de “Causa Raiz” das mesas utilizando código Python.
+
+## 📅 2026-05-31 — Dia 4: Migração de Análise para Pandas e Validação de Dados
+
+### 🎯 Objetivos do Dia
+- Iniciar a exploração de dados via Jupyter Notebook.
+- Replicar a lógica de KPIs globais do Excel utilizando Pandas.
+- Identificar a subcategoria com maior impacto negativo no lucro.
+
+### 🛠️ Atividades Realizadas
+- **Implementação de Pipeline de Carga:**
+    - Configuração de leitura de CSV utilizando `pd.read_csv`.
+    - Resolução de conflitos de caminho de diretório (Windows Path) utilizando caminhos relativos (`../`).
+    - Tratamento de erro de decodificação de caracteres (`UnicodeDecodeError`) implementando o encoding `latin1`.
+- **Cálculo de KPIs Executivos:**
+    - Implementação de somatórios para Vendas Totais e Lucro Total.
+    - Criação de filtro booleano para isolar e somar apenas o Lucro Negativo.
+- **Sincronização Excel $\leftrightarrow$ Pandas:**
+    - Investigação de divergência de valores entre as ferramentas.
+    - Identificação de erro de formatação no Excel (casas decimais ocultas), alinhando a visualização do dashboard com os dados reais do Python.
+- **Análise de Segmentação (Groupby):**
+    - Implementação de `groupby` por `Sub-Category` para ranqueamento de lucratividade.
+    - Confirmação estatística de que a subcategoria **Tables** é o principal detrator do lucro global.
+
+### 💡 Aprendizados Técnicos
+- **Caminhos no Windows:** A importância do uso de *raw strings* (`r''`) ou caminhos relativos para evitar erros de sequências de escape (ex: `\b`).
+- **Encoding:** Entendimento de que arquivos originados em ambiente Windows/Excel frequentemente exigem o encoding `latin1` em vez de `utf-8`.
+- **Filtros vs. Agregações:** Diferença fundamental entre agrupar por uma coluna (etiqueta) e filtrar por um valor específico.
+- **Integridade de Dados:** A importância de validar a formatação de células no Excel para evitar interpretações errôneas de valores arredondados.
+
+### 🚀 Próximos Passos
+- Realizar a análise de causa raiz das 'Tables' cruzando a métrica de `Discount` com `Profit`.
+- Iniciar a transição da exploração para o script de limpeza (`src/limpeza.py`) para gerar o dataset tratado.
