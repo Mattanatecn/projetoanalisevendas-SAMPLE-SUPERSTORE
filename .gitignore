@@ -1,0 +1,13 @@
+# Ambientes Virtuais (Essencial!)
+.venv/
+venv/
+ENV/
+# Jupyter Notebooks (Arquivos temporários de cache)
+.ipynb_checkpoints/
+# Python (Arquivos compilados)
+__pycache__/
+*.py[cod]
+*$py.class
+# Sistema Operacional
+.DS_Store
+Thumbs.db

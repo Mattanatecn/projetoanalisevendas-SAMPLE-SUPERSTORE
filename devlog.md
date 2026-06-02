@@ -117,7 +117,7 @@ Migração do dataset original e do arquivo de análise em Excel para a pasta `d
 - **Encoding:** Entendimento de que arquivos originados em ambiente Windows/Excel frequentemente exigem o encoding `latin1` em vez de `utf-8`.
 - **Filtros vs. Agregações:** Diferença fundamental entre agrupar por uma coluna (etiqueta) e filtrar por um valor específico.
 - **Integridade de Dados:** A importância de validar a formatação de células no Excel para evitar interpretações errôneas de valores arredondados.
-
+- **criação branch** criação de uma nova branch para nõ mandar dados direto na main. 'feature/exploracao-pandas'.
 ### 🚀 Próximos Passos
 - Realizar a análise de causa raiz das 'Tables' cruzando a métrica de `Discount` com `Profit`.
 - Iniciar a transição da exploração para o script de limpeza (`src/limpeza.py`) para gerar o dataset tratado.
