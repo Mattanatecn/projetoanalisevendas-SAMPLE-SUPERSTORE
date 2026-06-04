@@ -121,3 +121,30 @@ Migração do dataset original e do arquivo de análise em Excel para a pasta `d
 ### 🚀 Próximos Passos
 - Realizar a análise de causa raiz das 'Tables' cruzando a métrica de `Discount` com `Profit`.
 - Iniciar a transição da exploração para o script de limpeza (`src/limpeza.py`) para gerar o dataset tratado.
+
+## 📅 2026-06-04 — Dia 5: Prova da Causa Raiz e Início da Limpeza de Dados
+
+### 🎯 Objetivos do Dia
+- Provar matematicamente a causa raiz do prejuízo em 'Tables' via Pandas.
+- Iniciar o processo de limpeza e tratamento de dados (Data Cleaning).
+- Documentar o código para transformar o notebook em um material educativo.
+
+### 🛠️ Atividades Realizadas
+- **Prova da Causa Raiz (Slicing & Filtering):**
+    - Implementação de filtros compostos para isolar a subcategoria 'Tables'.
+    - Criação de grupos de comparação: Vendas com Desconto $\ge$ 20% vs. Vendas com Desconto $<$ 20%.
+    - Validação estatística: Lucro Total ($\approx$ -31k) para descontos altos vs. Lucro Total ($\approx$ 13k) para descontos baixos.
+- **Limpeza Técnica (Data Typing):**
+    - Conversão de tipos de dados: Transformação de `Order Date` e `Ship Date` de texto (`str`) para `datetime64`.
+    - Garantia de integridade para futuras análises de sazonalidade e tempo de entrega.
+- **Documentação Pedagógica:**
+    - Revisão completa do notebook com a adição de comentários detalhados, explicando o "porquê" de cada função e a lógica de negócio aplicada.
+
+### 💡 Principais Insights
+- **Validação de Hipótese:** A correlação entre descontos agressivos e prejuízo em Mesas foi confirmada no Python, consolidando a análise feita anteriormente no Excel.
+- **Importância da Tipagem:** A conversão de datas é o primeiro passo crítico para qualquer análise de séries temporais profissional.
+
+### 🚀 Próximos Passos
+- Análise de valores nulos (`.isnull().sum()`) para garantir a integridade do dataset.
+- Criação de visualizações gráficas (Séborn/Matplotlib) para expor a causa raiz de forma executiva.
+- Migração dos passos de limpeza para o script `src/limpeza.py`.
