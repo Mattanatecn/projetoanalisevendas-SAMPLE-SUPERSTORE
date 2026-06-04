@@ -1,5 +1,5 @@
 # Ambientes Virtuais (Essencial!)
-.venv/
+.venv*/
 venv/
 ENV/
 # Jupyter Notebooks (Arquivos temporários de cache)
