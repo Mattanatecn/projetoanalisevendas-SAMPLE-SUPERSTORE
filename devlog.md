@@ -1,150 +1,191 @@
-# 📝 Devlog - Projeto Análise de Vendas Superstore
+# Devlog - Projeto de Analise de Vendas Superstore
 
-Este arquivo registra a evolução do projeto, as decisões tomadas e os aprendizados adquiridos.
+Este arquivo registra a evolucao do projeto, as decisoes tomadas, os aprendizados tecnicos e os principais insights de negocio.
 
-## 📅 2026-05-09 - Dia 1: Pensamento Analítico e Exploração Inicial
+## 2026-05-09 - Dia 1: Pensamento Analitico e Exploracao Inicial
 
-### 🎯 Objetivos do Dia
-- Compreender o contexto de negócio do dataset.
-- Realizar a primeira exploração de dados via Excel.
-- Identificar padrões de lucro e prejuízo.
+### Objetivos
+- Compreender o contexto de negocio do dataset.
+- Realizar a primeira exploracao de dados via Excel.
+- Identificar padroes de lucro e prejuizo.
 
-### 🛠️ Atividades Realizadas
-- **Entendimento do Dataset:** Análise de colunas e definição de KPIs (Vendas, Lucro e Ticket Médio).
-- **Estruturação de Dados:** Transformação dos dados em Tabela Oficial (`Ctrl + T`) para garantir integridade e escalabilidade.
-- **Análise Exploratória:**
-    - Criação de Tabelas Dinâmicas para comparar Regiões e Categorias.
-    - Identificação da região **West** como a mais lucrativa e a região **South** como a menos performante.
-    - Comparação entre categorias: **Technology** (Alta margem) vs **Furniture** (Baixa margem/Volume alto).
-- **Investigação de Causa Raiz (Root Cause Analysis):**
-    - Drill-down na categoria *Furniture* para identificar a subcategoria **Tables** como a principal fonte de prejuízo.
-    - Cruzamento de dados entre `Discount` e `Profit`, provando que descontos acima de 0% em Mesas resultam em lucro negativo.
+### Atividades Realizadas
+- Entendimento das colunas do dataset e definicao dos primeiros KPIs: vendas, lucro e ticket medio.
+- Estruturacao dos dados em Tabela Oficial no Excel (`Ctrl + T`) para garantir integridade e escalabilidade.
+- Criacao de Tabelas Dinamicas para comparar regioes e categorias.
+- Identificacao da regiao `West` como a mais lucrativa e da regiao `South` como a menos performante.
+- Comparacao entre categorias, com destaque para `Technology` como categoria de alta margem e `Furniture` como categoria de volume alto e margem mais baixa.
+- Inicio da investigacao de causa raiz na categoria `Furniture`, identificando `Tables` como principal fonte de prejuizo.
+- Cruzamento entre `Discount` e `Profit`, indicando que descontos em mesas estavam associados a lucro negativo.
 
-### 💡 Principais Insights
-- **Causa Raiz:** O prejuízo em Mesas não é necessariamente logístico, mas sim estratégico (descontos agressivos que anulam a margem de lucro).
-- **Recomendação de Negócio:** Interrupção imediata de promoções agressivas em Mesas e revisão do preço de venda para cobrir custos.
+### Principais Insights
+- O prejuizo em `Tables` nao parece estar ligado inicialmente a logistica, mas a uma estrategia comercial de descontos agressivos.
+- A recomendacao preliminar foi revisar promocoes e politica de preco para mesas.
 
-### 🚧 Bloqueios e Dificuldades
-- Dificuldade inicial com fórmulas de soma $\rightarrow$ Superado com o uso de Barra de Status e Tabela Dinâmica.
+### Bloqueios e Aprendizados
+- Houve dificuldade inicial com formulas de soma no Excel.
+- A dificuldade foi superada com uso da Barra de Status e Tabelas Dinamicas.
 
-### 🚀 Próximos Passos
-- Implementar a arquitetura de Dashboard no Excel (KPIs $\rightarrow$ Gráficos $\rightarrow$ Slicers).
-- Transformar a análise de "Tabelas" em um insight visual no dashboard.
+### Proximos Passos
+- Implementar a arquitetura do dashboard no Excel: KPIs, graficos e slicers.
+- Transformar a analise de `Tables` em um insight visual no dashboard.
 
+## 2026-05-22 - Dia 2: Finalizacao do Dashboard e Storytelling de Dados
 
-## 📅 2026-05-22 - Dia 2: Finalização do Dashboard e Storytelling de Dados
+### Objetivos
+- Finalizar a camada visual do dashboard executivo.
+- Implementar visualmente a analise de causa raiz.
+- Garantir interatividade entre filtros, KPIs e graficos.
 
-### 🎯 Objetivos do Dia
-- Finalizar a camada visual do Dashboard Executivo.
-- Implementar a análise de "Causa Raiz" visualmente.
-- Garantir interatividade total entre filtros e KPIs.
+### Atividades Realizadas
+- Criacao do grafico de rentabilidade por categoria.
+- Criacao do grafico de subcategorias com lucro negativo.
+- Desenvolvimento do grafico de correlacao entre desconto e lucro para `Tables`.
+- Configuracao de slicers por regiao, categoria e segmento.
+- Conexao dos slicers com os relatorios para atualizacao simultanea dos visuais.
+- Correcao dos KPIs estaticos por meio de vinculos com Tabelas Dinamicas.
+- Implementacao da tecnica de celula ponte e uso da funcao `INFODADOSTABELADINAMICA` (`GETPIVOTDATA`) para estabilizar os KPIs mesmo com filtros ativos.
 
-### 🛠️ Atividades Realizadas
-- **Construção de Gráficos Analíticos:**
-    - Implementação do Gráfico de Rentabilidade por Categoria.
-    - Criação do Gráfico de "Vilões" (Subcategorias com lucro negativo).
-    - Desenvolvimento do Gráfico de Correlação (Desconto vs Lucro) especificamente para a subcategoria **Tables**, expondo que descontos $\ge$ 2% anulam a margem de lucro.
-- **Interatividade Avançada:**
-    - Configuração de Slicers (Região, Categoria, Segmento) com Conexões de Relatório para atualização simultânea de todos os visuais.
-- **Resolução de Problemas Técnicos (KPIs Dinâmicos):**
-    - Solução do problema de KPIs estáticos trocando fórmulas comuns por vínculos com Tabelas Dinâmicas.
-    - Implementação da técnica de **"Célula Ponte"** e uso da função `INFODADOSTABELADINAMICA` (`GETPIVOTDATA`) para evitar que os KPIs sumissem ao filtrar a tabela (estabilização do Total Geral).
+### Principais Insights
+- O dashboard passou a conduzir a narrativa de dados em etapas:
+  - sinal de alerta por KPIs;
+  - localizacao do problema por subcategoria;
+  - causa raiz por desconto;
+  - recomendacao de acao.
 
-### 💡 Principais Insights
-- **Storytelling:** O dashboard agora conduz o usuário do "Sinal de Alerta" (KPIs) $\rightarrow$ "Localização do Problema" (Gráfico de Vilões) $\rightarrow$ "Causa Raiz" (Gráfico de Descontos) $\rightarrow$ "Ação Recomendada" (Callout de Insight).
+### Proximos Passos
+- Migrar a analise para o VS Code.
+- Replicar a logica de analise com Python e Pandas.
+- Evoluir visualizacoes com bibliotecas como Seaborn, Matplotlib e Plotly.
+- Transformar a analise em um web app com Streamlit.
 
-### 🚀 Próximos Passos
-- Migrar a análise para o **VS Code**.
-- Replicar a lógica de análise usando **Python e Pandas**.
-- Evoluir as visualizações para bibliotecas interativas (**Plotly/Seaborn**).
-- Transformar a análise em um Web App utilizando **Streamlit**.
-            
-## 📅 2026-05-26 — Dia 3: Configuração de Ambiente e Versionamento Profissional
+## 2026-05-26 - Dia 3: Configuracao de Ambiente e Versionamento
 
-### 🎯 Objetivos do Dia
-
+### Objetivos
 - Migrar o projeto para o VS Code.
 - Estabelecer uma arquitetura de pastas profissional.
 - Configurar ambiente virtual Python e versionamento com Git/GitHub.
 
-### 🛠️ Atividades Realizadas
+### Atividades Realizadas
+- Criacao da estrutura de pastas do projeto:
+  - `dados/`
+  - `notebooks/`
+  - `src/`
+  - `dashboard/`
+  - `imagens/`
+- Criacao e ativacao de ambiente virtual (`.venv`).
+- Instalacao das principais bibliotecas de analise de dados:
+  - `pandas`
+  - `matplotlib`
+  - `seaborn`
+  - `plotly`
+  - `streamlit`
+- Configuracao do `.gitignore` para evitar versionamento de ambientes virtuais e arquivos temporarios.
+- Inicializacao do repositorio Git.
+- Primeiro commit da estrutura do projeto.
+- Conexao com repositorio remoto no GitHub.
+- Migracao do dataset original e da analise em Excel para `dados/bruto`.
 
-**Arquitetura de Projeto**
-Implementação de uma estrutura de pastas organizada (`dados/`, `notebooks/`, `src/`, `dashboard/`, `imagens/`) para separação de responsabilidades.
+### Proximos Passos
+- Iniciar a exploracao em `notebooks/exploracao.ipynb`.
+- Traduzir a logica da analise do Excel para Pandas.
+- Replicar a analise de causa raiz de `Tables` usando codigo Python.
 
-**Ambiente de Desenvolvimento**
-- Criação e ativação de ambiente virtual (`.venv`) para isolamento de dependências.
-- Instalação das principais bibliotecas de análise de dados:
-  `pandas`, `matplotlib`, `seaborn`, `plotly` e `streamlit`.
+## 2026-05-31 - Dia 4: Migracao da Analise para Pandas
 
-**Versionamento Profissional**
-- Configuração do arquivo `.gitignore` para evitar upload de arquivos desnecessários, como a pasta `.venv`.
-- Inicialização do repositório Git e realização do primeiro commit da estrutura do projeto.
-- Conexão e envio do projeto para um repositório remoto no GitHub.
-
-**Organização de Dados**
-Migração do dataset original e do arquivo de análise em Excel para a pasta `dados/bruto`.
-
-### 🚀 Próximos Passos
-- Iniciar a exploração de dados via Jupyter Notebook (`exploracao.ipynb`).
-- Traduzir a lógica de análise do Excel para Pandas utilizando `groupby`, filtros e agregações.
-- Replicar a análise de “Causa Raiz” das mesas utilizando código Python.
-
-## 📅 2026-05-31 — Dia 4: Migração de Análise para Pandas e Validação de Dados
-
-### 🎯 Objetivos do Dia
-- Iniciar a exploração de dados via Jupyter Notebook.
-- Replicar a lógica de KPIs globais do Excel utilizando Pandas.
+### Objetivos
+- Iniciar a exploracao de dados no Jupyter Notebook.
+- Replicar os KPIs globais do Excel em Pandas.
 - Identificar a subcategoria com maior impacto negativo no lucro.
 
-### 🛠️ Atividades Realizadas
-- **Implementação de Pipeline de Carga:**
-    - Configuração de leitura de CSV utilizando `pd.read_csv`.
-    - Resolução de conflitos de caminho de diretório (Windows Path) utilizando caminhos relativos (`../`).
-    - Tratamento de erro de decodificação de caracteres (`UnicodeDecodeError`) implementando o encoding `latin1`.
-- **Cálculo de KPIs Executivos:**
-    - Implementação de somatórios para Vendas Totais e Lucro Total.
-    - Criação de filtro booleano para isolar e somar apenas o Lucro Negativo.
-- **Sincronização Excel $\leftrightarrow$ Pandas:**
-    - Investigação de divergência de valores entre as ferramentas.
-    - Identificação de erro de formatação no Excel (casas decimais ocultas), alinhando a visualização do dashboard com os dados reais do Python.
-- **Análise de Segmentação (Groupby):**
-    - Implementação de `groupby` por `Sub-Category` para ranqueamento de lucratividade.
-    - Confirmação estatística de que a subcategoria **Tables** é o principal detrator do lucro global.
+### Atividades Realizadas
+- Leitura do CSV com `pd.read_csv`.
+- Ajuste de caminhos relativos para funcionar a partir da pasta `notebooks`.
+- Tratamento de erro de decodificacao com `encoding='latin1'`.
+- Calculo de vendas totais.
+- Calculo de lucro total.
+- Criacao de filtro booleano para isolar vendas com prejuizo.
+- Investigacao de divergencias entre Excel e Pandas.
+- Identificacao de problema de formatacao no Excel por casas decimais ocultas.
+- Uso de `groupby` por `Sub-Category` para ranquear lucro por subcategoria.
+- Confirmacao de `Tables` como principal detrator do lucro total.
+- Criacao da branch `feature/exploracao-pandas` para trabalhar sem alterar diretamente a branch principal.
 
-### 💡 Aprendizados Técnicos
-- **Caminhos no Windows:** A importância do uso de *raw strings* (`r''`) ou caminhos relativos para evitar erros de sequências de escape (ex: `\b`).
-- **Encoding:** Entendimento de que arquivos originados em ambiente Windows/Excel frequentemente exigem o encoding `latin1` em vez de `utf-8`.
-- **Filtros vs. Agregações:** Diferença fundamental entre agrupar por uma coluna (etiqueta) e filtrar por um valor específico.
-- **Integridade de Dados:** A importância de validar a formatação de células no Excel para evitar interpretações errôneas de valores arredondados.
-- **criação branch** criação de uma nova branch para nõ mandar dados direto na main. 'feature/exploracao-pandas'.
-### 🚀 Próximos Passos
-- Realizar a análise de causa raiz das 'Tables' cruzando a métrica de `Discount` com `Profit`.
-- Iniciar a transição da exploração para o script de limpeza (`src/limpeza.py`) para gerar o dataset tratado.
+### Aprendizados Tecnicos
+- Caminhos no Windows podem gerar erros por sequencias de escape.
+- Arquivos vindos do Excel/Windows podem exigir `latin1` em vez de `utf-8`.
+- Filtros e agregacoes respondem perguntas diferentes.
+- A validacao entre Excel e Pandas ajuda a identificar problemas de interpretacao e arredondamento.
 
-## 📅 2026-06-04 — Dia 5: Prova da Causa Raiz e Início da Limpeza de Dados
+### Proximos Passos
+- Realizar a analise de causa raiz de `Tables` cruzando `Discount` com `Profit`.
+- Iniciar a transicao da exploracao para `src/limpeza.py`.
+- Gerar futuramente um dataset tratado em `dados/tratado`.
 
-### 🎯 Objetivos do Dia
-- Provar matematicamente a causa raiz do prejuízo em 'Tables' via Pandas.
-- Iniciar o processo de limpeza e tratamento de dados (Data Cleaning).
-- Documentar o código para transformar o notebook em um material educativo.
+## 2026-06-04 - Dia 5: Prova da Causa Raiz e Inicio da Limpeza
 
-### 🛠️ Atividades Realizadas
-- **Prova da Causa Raiz (Slicing & Filtering):**
-    - Implementação de filtros compostos para isolar a subcategoria 'Tables'.
-    - Criação de grupos de comparação: Vendas com Desconto $\ge$ 20% vs. Vendas com Desconto $<$ 20%.
-    - Validação estatística: Lucro Total ($\approx$ -31k) para descontos altos vs. Lucro Total ($\approx$ 13k) para descontos baixos.
-- **Limpeza Técnica (Data Typing):**
-    - Conversão de tipos de dados: Transformação de `Order Date` e `Ship Date` de texto (`str`) para `datetime64`.
-    - Garantia de integridade para futuras análises de sazonalidade e tempo de entrega.
-- **Documentação Pedagógica:**
-    - Revisão completa do notebook com a adição de comentários detalhados, explicando o "porquê" de cada função e a lógica de negócio aplicada.
+### Objetivos
+- Provar matematicamente a causa raiz do prejuizo em `Tables` usando Pandas.
+- Iniciar o processo de limpeza e tratamento dos dados.
+- Documentar o notebook como material de aprendizado.
 
-### 💡 Principais Insights
-- **Validação de Hipótese:** A correlação entre descontos agressivos e prejuízo em Mesas foi confirmada no Python, consolidando a análise feita anteriormente no Excel.
-- **Importância da Tipagem:** A conversão de datas é o primeiro passo crítico para qualquer análise de séries temporais profissional.
+### Atividades Realizadas
+- Isolamento da subcategoria `Tables`.
+- Criacao de grupos de comparacao:
+  - vendas de mesas com desconto maior ou igual a 20%;
+  - vendas de mesas com desconto menor que 20%.
+- Validacao estatistica da hipotese:
+  - descontos altos em `Tables`: aproximadamente -31 mil de lucro;
+  - descontos baixos em `Tables`: aproximadamente 13 mil de lucro.
+- Conversao de `Order Date` e `Ship Date` de texto para `datetime`.
+- Revisao do notebook com comentarios explicativos sobre a logica tecnica e a logica de negocio.
 
-### 🚀 Próximos Passos
-- Análise de valores nulos (`.isnull().sum()`) para garantir a integridade do dataset.
-- Criação de visualizações gráficas (Séborn/Matplotlib) para expor a causa raiz de forma executiva.
-- Migração dos passos de limpeza para o script `src/limpeza.py`.
+### Principais Insights
+- A relacao entre descontos agressivos e prejuizo em `Tables` foi confirmada no Python.
+- A conversao de datas e um passo essencial para futuras analises temporais e de prazo de entrega.
+
+### Proximos Passos
+- Verificar valores nulos com `.isnull().sum()`.
+- Criar visualizacoes para comunicar a causa raiz.
+- Migrar os passos de limpeza para `src/limpeza.py`.
+
+## 2026-06-13 - Dia 6: Analise de Prazo de Envio e Margem
+
+### Objetivos
+- Investigar se o prazo de envio possui relacao com prejuizo.
+- Criar uma metrica de margem de lucro por venda.
+- Comparar lucro total, margem media e volume de vendas por subcategoria.
+- Identificar novas hipoteses de causa raiz alem de `Tables`.
+
+### Atividades Realizadas
+- Verificacao de valores nulos com `df.isnull().sum()`.
+- Confirmacao de ausencia de valores nulos no dataset.
+- Criacao da coluna `dias_envio`, calculada pela diferenca entre `Ship Date` e `Order Date`.
+- Analise de lucro por prazo de envio usando `groupby('dias_envio')`.
+- Criacao da coluna `margem_lucro`, calculada por `Profit / Sales`.
+- Analise da margem media por subcategoria.
+- Criacao de uma tabela resumo por subcategoria contendo:
+  - total de vendas;
+  - lucro total;
+  - margem media.
+
+### Principais Insights
+- O prazo de envio nao apresentou relacao direta com prejuizo nesta primeira analise.
+- Todos os grupos de `dias_envio`, de 0 a 7 dias, apresentaram lucro total e lucro medio positivos.
+- `Tables` continua sendo a subcategoria mais critica em impacto financeiro, com lucro total de aproximadamente -17,7 mil.
+- `Bookcases` tambem apresentou lucro total negativo e margem media negativa.
+- `Binders` apresentou margem media negativa, mas lucro total positivo, indicando uma possivel combinacao de muitas vendas pequenas pouco eficientes com vendas maiores lucrativas.
+- `Appliances` tambem apresentou margem media negativa, apesar de lucro total positivo.
+- A analise mostrou a diferenca entre duas leituras importantes:
+  - margem media mede eficiencia;
+  - lucro total mede impacto financeiro.
+
+### Hipoteses em Aberto
+- `Tables` segue como prioridade pela combinacao de prejuizo total alto e descontos agressivos ja identificados.
+- `Binders` sera investigada em seguida para entender se a margem media negativa vem de muitas vendas pequenas com prejuizo compensadas por vendas maiores lucrativas.
+
+### Proximos Passos
+- Investigar `Binders` separando vendas com lucro negativo e vendas com lucro positivo.
+- Comparar quantidade de vendas, valor medio de venda, lucro total e margem media nos dois grupos.
+- Depois da exploracao, consolidar as transformacoes estaveis em `src/limpeza.py`.
+- Gerar o primeiro arquivo tratado em `dados/tratado`.
