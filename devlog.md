@@ -224,3 +224,109 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 - Executar a tabela `comparacao_binders` no notebook.
 - Interpretar se o prejuízo em `Binders` está mais relacionado a volume, ticket médio, margem ou desconto.
 - Registrar a conclusão em `docs/perguntas_e_insights.md`.
+
+## 2026-06-18 - Dia 8: Revisão da Exploração e Comparação entre Binders e Tables
+
+### Objetivos
+- Revisar a organização da exploração no notebook.
+- Confirmar quais análises já foram feitas para `Binders` e `Tables`.
+- Melhorar o registro das perguntas e insights do projeto.
+- Preparar a comparação de `Tables` com a mesma lógica usada em `Binders`.
+
+### Atividades Realizadas
+- Revisão da sequência atual do notebook `notebooks/exploracao.ipynb`.
+- Confirmação de que a análise de `Tables` por desconto já havia sido feita anteriormente:
+  - vendas com desconto maior ou igual a 20%;
+  - vendas com desconto menor que 20%;
+  - comparação do lucro total entre os dois grupos.
+- Confirmação de que a análise de `Binders` por lucro e prejuízo foi estruturada com os indicadores:
+  - quantidade de vendas;
+  - vendas totais;
+  - venda média;
+  - lucro total;
+  - margem média;
+  - desconto médio.
+- Construção da tabela `comparacao_binders` usando `pd.DataFrame`.
+- Investigação adicional de `Binders` por faixa de desconto:
+  - `binders_high_discount`;
+  - `binders_low_discount`;
+  - comparação de lucro total e margem média entre desconto alto e desconto baixo.
+- Início da preparação da mesma lógica de comparação para `Tables`, separando:
+  - `tables_prejuizo`;
+  - `tables_lucro`.
+- Correção dos principais pontos da comparação de `Tables`:
+  - uso de `Profit >= 0` para o grupo com lucro;
+  - correção do nome da variável `vendas_media_lucro_tables`;
+  - uso correto da coluna `margem_lucro`.
+- Revisão e melhoria do arquivo `docs/perguntas_e_insights.md`.
+- Correção da acentuação do arquivo de perguntas e insights para deixar o texto mais natural em português.
+
+### Principais Insights
+- A análise de `Binders` mostrou que o grupo com prejuízo apresentou lucro total negativo e margem média negativa.
+- Também foi observado que o grupo de `Binders` com prejuízo apresentou desconto médio maior.
+- Isso indica uma possível relação entre descontos mais agressivos e perda de margem em parte das vendas de `Binders`.
+- Ainda é necessário comparar diretamente as faixas de desconto para fortalecer ou confirmar essa hipótese.
+- A análise de `Tables` já existe no notebook, mas ainda precisa ser padronizada em uma tabela resumo semelhante à de `Binders`.
+
+### Aprendizados Técnicos
+- Tabelas resumo com `pd.DataFrame` deixam a comparação mais clara do que vários `print()` separados.
+- É importante manter o mesmo critério entre análises parecidas, como usar `Profit < 0` para prejuízo e `Profit >= 0` para lucro.
+- Prints de DataFrames inteiros poluem o notebook; tabelas agregadas são mais adequadas para análise e comunicação.
+- O notebook deve contar uma história analítica: visão geral, identificação do problema, investigação da causa e conclusão parcial.
+
+### Status
+- Comparação de `Binders` estruturada.
+- Texto de perguntas e insights revisado e acentuado.
+- Comparação de `Tables` iniciada e corrigida, mas ainda sem a tabela final `comparacao_tables`.
+
+### Próximos Passos
+- Criar a tabela `comparacao_tables` com os mesmos indicadores usados em `comparacao_binders`.
+- Comparar os grupos `Tables com prejuízo` e `Tables com lucro`.
+- Depois, avaliar se vale criar uma tabela final comparando os grupos problemáticos de `Tables` e `Binders`.
+- Atualizar `docs/perguntas_e_insights.md` com a conclusão da comparação de `Tables`.
+- Em seguida, iniciar a transição para `src/limpeza.py` e geração dos dados tratados.
+
+## 2026-06-22 - Dia 9: Conclusão da Comparação entre Tables e Binders
+
+### Objetivos
+- Finalizar a comparação entre `Tables` e `Binders`.
+- Entender se o maior problema estava em `Tables` ou em `Binders`.
+- Criar uma tabela de apoio para interpretar os dados sem misturar conclusão e evidência.
+
+### Atividades Realizadas
+- Finalização da tabela `comparacao_tables`, comparando:
+  - `Tables com prejuízo`;
+  - `Tables com lucro`.
+- Junção das tabelas `comparacao_tables` e `comparacao_binders` usando `pd.concat`.
+- Ordenação da tabela comparativa por `lucro_total`, para visualizar os grupos com maior prejuízo.
+- Revisão da interpretação da comparação entre grupos com prejuízo e resultado total por subcategoria.
+- Identificação de uma diferença importante:
+  - `Binders` possui um grupo de vendas com prejuízo mais negativo;
+  - porém `Binders` fecha com lucro total positivo;
+  - `Tables` fecha com lucro total negativo, pois o lucro das vendas positivas não compensa as perdas.
+
+### Principais Insights
+- `Binders` apresenta perdas relevantes em parte das vendas, mas a subcategoria ainda é lucrativa no resultado acumulado.
+- `Tables` é o problema financeiro principal, porque a subcategoria fecha com lucro total negativo.
+- A comparação mostrou a diferença entre olhar apenas grupos negativos e olhar o resultado final da subcategoria.
+- O real problema financeiro identificado na exploração continua sendo `Tables`.
+
+### Aprendizados Técnicos
+- A tabela final deve servir como apoio para interpretação, não necessariamente conter textos longos de conclusão.
+- Tabelas com textos grandes ficam difíceis de ler no notebook.
+- Para comparar melhor, é importante separar:
+  - prejuízo interno de um grupo;
+  - lucro compensatório;
+  - resultado final da subcategoria.
+- Reaproveitar tabelas já criadas, como `comparacao_tables` e `comparacao_binders`, é melhor do que repetir todos os cálculos.
+
+### Status
+- Comparação entre `Tables` e `Binders` concluída no notebook.
+- Conclusão principal definida: `Tables` é o real problema financeiro.
+- Registro em `docs/perguntas_e_insights.md` ficará para a próxima etapa.
+
+### Próximos Passos
+- Adicionar a conclusão final da comparação em `docs/perguntas_e_insights.md`.
+- Revisar o notebook para reduzir prints grandes e manter apenas tabelas úteis.
+- Depois disso, iniciar a transição para `src/limpeza.py`.
+- Gerar futuramente o primeiro dataset tratado em `dados/tratado`.
