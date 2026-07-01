@@ -330,3 +330,69 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 - Revisar o notebook para reduzir prints grandes e manter apenas tabelas úteis.
 - Depois disso, iniciar a transição para `src/limpeza.py`.
 - Gerar futuramente o primeiro dataset tratado em `dados/tratado`.
+
+## 2026-07-01 - Dia 10: Início da Limpeza dos Dados
+
+### Objetivos
+- Iniciar a transição da exploração para um script de limpeza em `src/limpeza.py`.
+- Transformar as etapas já validadas no notebook em um processo repetível.
+- Preparar a base para futuramente gerar o primeiro arquivo tratado em `dados/tratado`.
+
+### Atividades Realizadas
+- Criação do arquivo `src/limpeza.py`.
+- Leitura do arquivo bruto `dados/bruto/Sample - Superstore.csv` com `pd.read_csv` e `encoding='latin1'`.
+- Definição dos caminhos:
+  - `caminho_entrada`;
+  - `caminho_saida`.
+- Conversão das colunas de data:
+  - `Order Date`;
+  - `Ship Date`.
+- Uso de `format='%m/%d/%Y'` para deixar explícito o padrão de data do dataset.
+- Uso de `errors='coerce'` para permitir identificar datas inválidas.
+- Verificação de datas inválidas após a conversão.
+- Verificação de datas incoerentes, ou seja, casos em que `Ship Date` seria anterior a `Order Date`.
+- Criação da coluna `dias_envio`, calculada pela diferença entre `Ship Date` e `Order Date`.
+- Criação da coluna `margem_lucro`, calculada por `Profit / Sales`.
+- Verificação de valores nulos com `df.isnull().sum()`.
+- Verificação de linhas duplicadas com `df.duplicated().sum()`.
+
+### Resultados da Validação
+- Datas inválidas: 0.
+- Datas incoerentes: 0.
+- Valores nulos após as transformações: 0.
+- Linhas duplicadas: 0.
+- As colunas `dias_envio` e `margem_lucro` foram criadas corretamente.
+
+### Aprendizados Técnicos
+- A limpeza deve transformar descobertas da exploração em um processo organizado e repetível.
+- A verificação de datas precisa considerar dois tipos de problema:
+  - datas inválidas tecnicamente, que não conseguem ser convertidas;
+  - datas incoerentes para o negócio, como envio antes do pedido.
+- `errors='coerce'` é útil porque transforma datas problemáticas em `NaT`, permitindo investigar o problema em vez de esconder o erro.
+- Nem toda coluna pensada na exploração deve entrar automaticamente na base tratada; algumas precisam de validação de regra de negócio antes.
+
+### Decisão de Projeto
+- As colunas `dias_envio` e `margem_lucro` entram como transformações já validadas.
+- As colunas `ano` e `mes` podem ser criadas depois para apoiar análises temporais e filtros em dashboard.
+- A coluna `faixa_desconto` não será criada ainda.
+- Antes de criar `faixa_desconto`, será necessário revisar a análise exploratória de descontos e validar se as faixas fazem sentido para o negócio.
+
+### Regra para `faixa_desconto`
+- A regra proposta só será implementada depois de revisão:
+  - 0% = sem desconto;
+  - maior que 0% e menor que 20% = desconto baixo;
+  - 20% a 40% = desconto alto;
+  - acima de 40% = desconto agressivo.
+- Essa regra precisa ser confirmada com base no comportamento observado na exploração, principalmente nas análises de `Tables` e `Binders`.
+
+### Status
+- Script de limpeza iniciado.
+- Validações principais de datas, nulos e duplicados implementadas.
+- Base tratada ainda não foi salva.
+- Regras adicionais de enriquecimento, como `ano`, `mes` e `faixa_desconto`, ficaram para etapa posterior.
+
+### Próximos Passos
+- Salvar o arquivo tratado em `dados/tratado/superstore_tratado.csv`.
+- Depois, avaliar a criação das colunas `ano` e `mes`.
+- Revisar a exploração de descontos antes de criar `faixa_desconto`.
+- Só implementar `faixa_desconto` quando a regra de negócio estiver validada.
