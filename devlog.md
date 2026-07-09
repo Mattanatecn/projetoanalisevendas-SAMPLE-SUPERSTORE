@@ -388,11 +388,63 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 ### Status
 - Script de limpeza iniciado.
 - Validações principais de datas, nulos e duplicados implementadas.
-- Base tratada ainda não foi salva.
-- Regras adicionais de enriquecimento, como `ano`, `mes` e `faixa_desconto`, ficaram para etapa posterior.
+- Base tratada gerada em `dados/tratado/superstore_tratado.csv`.
+- Primeira versão da limpeza concluída.
 
 ### Próximos Passos
-- Salvar o arquivo tratado em `dados/tratado/superstore_tratado.csv`.
-- Depois, avaliar a criação das colunas `ano` e `mes`.
-- Revisar a exploração de descontos antes de criar `faixa_desconto`.
-- Só implementar `faixa_desconto` quando a regra de negócio estiver validada.
+- Fazer commit da etapa de limpeza.
+- Iniciar a análise final utilizando `dados/tratado/superstore_tratado.csv`.
+- Revalidar os principais KPIs com a base tratada.
+- Confirmar se os resultados da exploração continuam consistentes com o dataset tratado.
+- Preparar a próxima etapa de visualizações em Python.
+
+## 2026-07-09 - Dia 11: Conclusão da Limpeza v1
+
+### Objetivos
+- Finalizar a primeira versão do script de limpeza.
+- Criar as colunas tratadas e enriquecidas definidas durante a exploração.
+- Gerar o primeiro arquivo tratado do projeto.
+
+### Atividades Realizadas
+- Criação das colunas temporais:
+  - `ano`;
+  - `mes`.
+- Revisão da regra de negócio para criação de `faixa_desconto`.
+- Implementação da coluna `faixa_desconto`, considerando que `Discount` está em formato decimal:
+  - `0` = sem desconto;
+  - maior que `0` e menor que `0.2` = desconto baixo;
+  - maior ou igual a `0.2` e menor ou igual a `0.4` = desconto alto;
+  - maior que `0.4` = desconto agressivo.
+- Validação da distribuição das faixas de desconto:
+  - sem desconto: 4.798 linhas;
+  - desconto alto: 4.117 linhas;
+  - desconto agressivo: 933 linhas;
+  - desconto baixo: 146 linhas.
+- Inclusão de uma categoria de segurança `verificar` para casos futuros fora das regras previstas.
+- Salvamento da base tratada em `dados/tratado/superstore_tratado.csv`.
+- Validação do arquivo tratado gerado:
+  - 9.994 linhas;
+  - 26 colunas.
+
+### Colunas Criadas na Base Tratada
+- `dias_envio`
+- `ano`
+- `mes`
+- `margem_lucro`
+- `faixa_desconto`
+
+### Principais Aprendizados
+- Colunas tratadas devem nascer de necessidades identificadas na exploração.
+- A coluna `faixa_desconto` precisava de validação antes de ser criada, pois dependia de uma regra de negócio.
+- Valores percentuais no dataset estavam em formato decimal, então `0.2` representa 20% e `0.4` representa 40%.
+- A base tratada deve ser a fonte das próximas análises, visualizações e dashboards.
+
+### Status
+- Limpeza v1 concluída.
+- Arquivo tratado criado com sucesso.
+- O projeto está pronto para avançar para análise final com dados tratados.
+
+### Próximos Passos
+- Iniciar análise final a partir da base tratada.
+- Comparar os principais resultados da exploração com a base tratada.
+- Começar a preparar visualizações em Python.
