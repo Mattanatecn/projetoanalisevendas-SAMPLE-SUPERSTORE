@@ -448,3 +448,60 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 - Iniciar análise final a partir da base tratada.
 - Comparar os principais resultados da exploração com a base tratada.
 - Começar a preparar visualizações em Python.
+
+## 2026-07-12 - Dia 12: Início da Análise Final
+
+### Objetivos
+- Iniciar a análise final utilizando a base tratada.
+- Organizar o novo notebook por etapas claras.
+- Confirmar se o arquivo tratado está pronto para as análises de negócio.
+
+### Atividades Realizadas
+- Criação da branch `feature/analise-final`.
+- Criação do notebook `notebooks/analise_final.ipynb`.
+- Organização inicial do notebook nas seções:
+  - carregamento da base tratada;
+  - validação da base tratada.
+- Criação da função `carregar_dados`, responsável por:
+  - receber o caminho do arquivo;
+  - carregar o CSV tratado;
+  - converter `Order Date` e `Ship Date` para o tipo de data;
+  - devolver o DataFrame carregado.
+- Validação da quantidade de linhas e colunas.
+- Verificação dos tipos das colunas e visualização inicial dos dados.
+- Verificação de valores nulos e linhas duplicadas.
+- Validação dos limites de datas, descontos e prazos de envio.
+- Conferência dos anos disponíveis e das categorias de desconto.
+
+### Resultados da Validação
+- Registros: 9.994.
+- Colunas: 26.
+- Valores nulos: 0.
+- Linhas duplicadas: 0.
+- Período dos pedidos: 03/01/2014 a 30/12/2017.
+- Descontos: 0% a 80%.
+- Prazo de envio: 0 a 7 dias.
+- Anos disponíveis: 2014, 2015, 2016 e 2017.
+- Faixas encontradas:
+  - sem desconto;
+  - desconto baixo;
+  - desconto alto;
+  - desconto agressivo.
+- Nenhum registro foi classificado como `verificar`.
+
+### Principais Aprendizados
+- Uma base tratada também deve ser validada antes de iniciar os cálculos de negócio.
+- `min()` e `max()` ajudam a verificar os limites e a coerência de datas e valores numéricos.
+- Uma variável criada dentro de uma função possui escopo local; o valor devolvido por `return` precisa ser recebido fora da função.
+- Receber o caminho como parâmetro torna a função de carregamento mais reutilizável.
+- `set()` encontra valores distintos.
+
+### Status
+- Carregamento e validação da base tratada concluídos.
+- Base confirmada como pronta para a análise final.
+- A visão geral do negócio ainda não foi iniciada.
+
+### Próximos Passos
+- Criar a seção de visão geral do negócio.
+- Calcular os principais KPIs, incluindo faturamento, lucro, margem global, quantidade vendida, número de pedidos e ticket médio.
+- Organizar os KPIs em uma função reutilizável para apoiar futuramente o dashboard.
