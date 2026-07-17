@@ -505,3 +505,60 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 - Criar a seção de visão geral do negócio.
 - Calcular os principais KPIs, incluindo faturamento, lucro, margem global, quantidade vendida, número de pedidos e ticket médio.
 - Organizar os KPIs em uma função reutilizável para apoiar futuramente o dashboard.
+
+## 2026-07-17 - Dia 13: Visão Geral do Negócio
+
+### Objetivos
+- Criar a visão geral do negócio a partir da base tratada.
+- Calcular os principais KPIs do período analisado.
+- Organizar os cálculos em uma função reutilizável.
+- Interpretar os resultados em linguagem de negócio.
+
+### Atividades Realizadas
+- Criação da seção `3. Visão geral do negócio` no notebook.
+- Criação da função `calcular_kpis`, que recebe um DataFrame e calcula:
+  - faturamento total;
+  - lucro total;
+  - margem global;
+  - quantidade vendida;
+  - total de pedidos únicos;
+  - ticket médio.
+- Organização dos resultados em um dicionário chamado `kpis`.
+- Separação entre o cálculo dos indicadores e a formatação usada para apresentá-los.
+- Criação de uma interpretação dos KPIs em uma célula Markdown.
+- Revisão do significado da margem global e do ticket médio.
+
+### Resultados dos KPIs
+- Faturamento total: US$ 2.297.200,86.
+- Lucro total: US$ 286.397,02.
+- Margem global: 12,47%.
+- Quantidade vendida: 37.873 unidades.
+- Pedidos únicos: 5.009.
+- Ticket médio: US$ 458,61 por pedido.
+
+### Interpretação de Negócio
+- A empresa apresentou lucro no período analisado.
+- Para cada US$ 100 faturados, aproximadamente US$ 12,47 permaneceram como lucro.
+- Cada pedido gerou, em média, US$ 458,61 em faturamento.
+- O resultado geral positivo não permite concluir sozinho que todas as áreas do negócio foram lucrativas.
+- Ainda será necessário investigar categorias, regiões e períodos que possam esconder baixa lucratividade ou prejuízo.
+
+### Principais Aprendizados
+- A margem global deve ser calculada dividindo o lucro total pelo faturamento total, e não pela média simples da coluna `margem_lucro`.
+- O total de pedidos deve usar `nunique()` em `Order ID`, pois um mesmo pedido pode aparecer em várias linhas.
+- Uma função de análise deve receber o DataFrame como parâmetro para não depender de uma variável global.
+- Um dicionário permite devolver vários KPIs com nomes que representam seus significados.
+- Os valores devem permanecer numéricos durante os cálculos; a formatação monetária e percentual deve acontecer apenas na apresentação.
+- Um resultado positivo só pode ser classificado como bom quando existe uma meta, um histórico ou outra referência para comparação.
+
+### Status
+- Visão geral do negócio concluída.
+- KPIs gerais calculados e validados com a base tratada.
+- Interpretação inicial registrada no notebook.
+- A etapa 4, referente à análise temporal, foi adiada para a próxima sessão.
+
+### Próximos Passos
+- Criar a seção `4. Análise temporal`.
+- Implementar a função reutilizável `resumir_por_grupo`.
+- Gerar um resumo anual com faturamento, lucro, margem, quantidade, pedidos e ticket médio.
+- Investigar se o faturamento e o lucro evoluíram de forma consistente entre 2014 e 2017.
