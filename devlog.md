@@ -562,3 +562,96 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 - Implementar a função reutilizável `resumir_por_grupo`.
 - Gerar um resumo anual com faturamento, lucro, margem, quantidade, pedidos e ticket médio.
 - Investigar se o faturamento e o lucro evoluíram de forma consistente entre 2014 e 2017.
+
+## 2026-07-19 - Dia 14: Análise do Desempenho Anual
+
+### Objetivos
+- Iniciar a análise temporal da base tratada.
+- Comparar o desempenho da empresa entre 2014 e 2017.
+- Aprender a utilizar `groupby()` e `agg()` de forma gradual.
+- Criar uma função reutilizável para resumos por diferentes grupos.
+- Registrar as novas perguntas e descobertas na documentação analítica.
+
+### Atividades Realizadas
+- Criação da seção `4. Análise temporal` no notebook.
+- Criação da subseção `4.1 Desempenho anual`.
+- Estudo da diferença entre separar os anos manualmente com `for` e `if` e agrupá-los automaticamente com `groupby()`.
+- Criação da função `resumir_por_grupo`, que recebe:
+  - o DataFrame;
+  - o nome da coluna de agrupamento.
+- Uso de `agg()` para gerar, em uma única tabela:
+  - faturamento total;
+  - lucro total;
+  - quantidade vendida;
+  - total de pedidos únicos.
+- Cálculo da margem global de cada grupo a partir do lucro total dividido pelo faturamento total.
+- Cálculo do ticket médio de cada grupo a partir do faturamento total dividido pelo total de pedidos.
+- Aplicação da função na coluna `ano` para criar `resumo_anual`.
+- Interpretação dos resultados anuais em uma célula Markdown.
+
+### Resultados do Resumo Anual
+- 2014:
+  - faturamento: US$ 484.247,50;
+  - lucro: US$ 49.543,97;
+  - quantidade vendida: 7.581 unidades;
+  - pedidos: 969;
+  - margem global: 10,23%;
+  - ticket médio: US$ 499,74.
+- 2015:
+  - faturamento: US$ 470.532,51;
+  - lucro: US$ 61.618,60;
+  - quantidade vendida: 7.979 unidades;
+  - pedidos: 1.038;
+  - margem global: 13,10%;
+  - ticket médio: US$ 453,31.
+- 2016:
+  - faturamento: US$ 609.205,60;
+  - lucro: US$ 81.795,17;
+  - quantidade vendida: 9.837 unidades;
+  - pedidos: 1.315;
+  - margem global: 13,43%;
+  - ticket médio: US$ 463,27.
+- 2017:
+  - faturamento: US$ 733.215,26;
+  - lucro: US$ 93.439,27;
+  - quantidade vendida: 12.476 unidades;
+  - pedidos: 1.687;
+  - margem global: 12,74%;
+  - ticket médio: US$ 434,63.
+
+### Principais Insights
+- O lucro aumentou em todos os anos, mas o faturamento caiu entre 2014 e 2015.
+- Em 2015, a quantidade vendida e o número de pedidos aumentaram, enquanto o faturamento e o ticket médio diminuíram.
+- O aumento no volume de vendas não garantiu aumento do faturamento em 2015.
+- A margem de 2015 aumentou de 10,23% para 13,10%, indicando maior eficiência financeira, embora sua causa ainda não tenha sido identificada.
+- O ano de 2016 apresentou a maior margem global, com 13,43%.
+- O ano de 2017 apresentou o maior faturamento e o maior lucro, sustentados pelo maior volume de pedidos e unidades vendidas.
+- Em 2017, o faturamento atingiu o maior valor mesmo com o menor ticket médio do período.
+
+### Principais Aprendizados
+- `groupby()` separa os dados automaticamente pelos valores distintos de uma coluna.
+- `agg()` permite calcular várias métricas para os mesmos grupos sem repetir o agrupamento.
+- A estrutura `nome_do_resultado=('coluna_original', 'operação')` cria nomes de negócio claros para as colunas agregadas.
+- `nunique()` deve ser usado para contar pedidos sem repetir um mesmo `Order ID`.
+- Faturamento, lucro, margem, quantidade, pedidos e ticket médio respondem perguntas diferentes e precisam ser interpretados em conjunto.
+- Uma relação observada nos dados pode sustentar uma hipótese, mas não confirma automaticamente sua causa.
+
+### Organização da Documentação
+- O documento de perguntas e insights foi dividido por fase do projeto.
+- `docs/perguntas_e_insights.md` passou a funcionar como índice.
+- `docs/perguntas_e_insights/exploracao_inicial.md` passou a reunir as sete perguntas da exploração inicial.
+- `docs/perguntas_e_insights/analise_final.md` passou a reunir as perguntas e conclusões obtidas com a base tratada.
+- A numeração das perguntas da análise final foi reiniciada.
+- A pergunta sobre a melhora da margem em 2015 foi mantida com status `Em investigação`.
+
+### Status
+- Resumo anual concluído com os principais indicadores.
+- Interpretação anual registrada no notebook.
+- Perguntas e insights reorganizados por fase do projeto.
+- Causa da melhora de margem em 2015 ainda não confirmada.
+
+### Próximos Passos
+- Melhorar a apresentação da tabela anual, formatando valores monetários e percentuais.
+- Continuar a análise temporal com a variação mensal e possível sazonalidade.
+- Investigar por que a margem melhorou em 2015, comparando categorias, descontos e regiões.
+- Preparar visualizações do desempenho ao longo do tempo.
