@@ -45,6 +45,7 @@ O desempenho financeiro da empresa evoluiu de forma consistente entre 2014 e 201
 - Soma de `Sales`, `Profit` e `Quantity` em cada ano.
 - Contagem de pedidos únicos com `Order ID`.
 - Cálculo da margem global e do ticket médio de cada ano.
+- Cálculo das variações anuais de faturamento e lucro com `pct_change()`.
 
 ### Resultado
 - 2014:
@@ -63,11 +64,22 @@ O desempenho financeiro da empresa evoluiu de forma consistente entre 2014 e 201
   - faturamento de aproximadamente US$ 733,22 mil;
   - lucro de aproximadamente US$ 93,44 mil;
   - margem global de 12,74%.
+- Variação de 2014 para 2015:
+  - faturamento: -2,83%;
+  - lucro: +24,37%.
+- Variação de 2015 para 2016:
+  - faturamento: +29,47%;
+  - lucro: +32,74%.
+- Variação de 2016 para 2017:
+  - faturamento: +20,36%;
+  - lucro: +14,24%.
 
 ### Insight
 O lucro aumentou em todos os anos, mas o faturamento não: em 2015, o faturamento ficou abaixo de 2014 enquanto o lucro e a margem aumentaram.
 
 O ano de 2016 apresentou a maior margem global. O ano de 2017 teve o maior faturamento e o maior lucro, mas sua margem ficou abaixo das margens de 2015 e 2016. Isso mostra que maior resultado financeiro absoluto não significa necessariamente maior eficiência.
+
+Em 2015 e 2016, o lucro cresceu mais rapidamente que o faturamento, contribuindo para o aumento da margem. Em 2017, o lucro cresceu mais lentamente que o faturamento, o que ajuda a explicar a redução da margem global.
 
 ### Status
 Confirmado.
@@ -116,6 +128,7 @@ Quais fatores fizeram o lucro e a margem aumentarem em 2015, apesar da redução
 - O lucro aumentou de aproximadamente US$ 49,54 mil para US$ 61,62 mil.
 - A margem global aumentou de 10,23% para 13,10%.
 - O ticket médio diminuiu de US$ 499,74 para US$ 453,31.
+- Em relação a 2014, o faturamento caiu 2,83% e o lucro cresceu 24,37%.
 
 ### Insight Parcial
 Os dados confirmam uma melhora de eficiência em 2015, mas ainda não explicam sua causa. Descontos, combinação de produtos e desempenho regional permanecem como hipóteses de investigação.

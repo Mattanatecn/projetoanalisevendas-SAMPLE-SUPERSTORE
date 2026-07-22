@@ -653,5 +653,75 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 ### Próximos Passos
 - Melhorar a apresentação da tabela anual, formatando valores monetários e percentuais.
 - Continuar a análise temporal com a variação mensal e possível sazonalidade.
-- Investigar por que a margem melhorou em 2015, comparando categorias, descontos e regiões.
-- Preparar visualizações do desempenho ao longo do tempo.
+
+## 2026-07-22 - Dia 15: Conclusão do Resumo Anual
+
+### Objetivos
+- Quantificar a variação do faturamento e do lucro entre anos consecutivos.
+- Melhorar a organização das funções da análise.
+- Formatar a tabela anual para facilitar sua leitura no notebook.
+- Concluir a parte numérica e textual do desempenho anual antes de iniciar a análise mensal.
+
+### Atividades Realizadas
+- Estudo da fórmula de variação percentual entre um valor atual e o valor anterior.
+- Simulação da comparação anual de forma manual e com laço `for`.
+- Uso de `pct_change()` para calcular automaticamente:
+  - variação anual do faturamento;
+  - variação anual do lucro.
+- Interpretação conjunta do crescimento do faturamento, do lucro e da margem global.
+- Separação das responsabilidades em duas funções:
+  - `resumir_por_grupo`, responsável pelos indicadores gerais de qualquer agrupamento;
+  - `variacoes_temporais`, responsável pelas comparações entre períodos ordenados.
+- Uso de `.copy()` para preservar o resumo original antes de adicionar as variações temporais.
+- Criação de um dicionário com regras de formatação para cada coluna.
+- Uso de `style.format()` para apresentar:
+  - valores monetários;
+  - quantidades com separador de milhares;
+  - margens e variações em porcentagem;
+  - ausência de comparação em 2014 representada por `-`.
+- Decisão de deixar os gráficos finais para a etapa de visualização, depois da conclusão das análises.
+
+### Resultados das Variações Anuais
+- De 2014 para 2015:
+  - faturamento: -2,83%;
+  - lucro: +24,37%.
+- De 2015 para 2016:
+  - faturamento: +29,47%;
+  - lucro: +32,74%.
+- De 2016 para 2017:
+  - faturamento: +20,36%;
+  - lucro: +14,24%.
+
+### Principais Insights
+- Em 2015, o faturamento diminuiu, mas o lucro cresceu 24,37%, reforçando a evidência de melhora na eficiência financeira.
+- Em 2016, o lucro cresceu mais rapidamente que o faturamento e a margem global aumentou.
+- Em 2017, o faturamento cresceu mais rapidamente que o lucro e a margem global diminuiu.
+- O crescimento do lucro precisa ser analisado em relação ao crescimento do faturamento para compreender a evolução da margem.
+
+### Principais Aprendizados
+- A variação percentual compara o valor atual com o período imediatamente anterior.
+- `pct_change()` automatiza a mesma lógica que poderia ser implementada manualmente ou com um laço `for`.
+- O primeiro período apresenta `NaN` porque não existe um período anterior para comparação.
+- Funções genéricas não devem incluir cálculos que só fazem sentido para dados temporais.
+- Uma função sem `return` devolve `None`, o que impede operações posteriores sobre o resultado.
+- Ao trabalhar com uma cópia, as alterações e o `return` devem utilizar a mesma variável.
+- `style.format()` muda apenas a apresentação; os valores do DataFrame continuam numéricos.
+
+### Erros Investigados
+- Correção do nome `pct_chenge()` para `pct_change()`.
+- Correção da ausência de `return` na primeira tentativa da função temporal.
+- Correção do uso alternado entre o resumo original e sua cópia, que fazia a variação do faturamento desaparecer do resultado final.
+- Correção do dicionário utilizado na formatação das variações.
+
+### Status
+- Resumo anual concluído com indicadores, variações, interpretação e formatação.
+- Funções reorganizadas por responsabilidade.
+- Documento de perguntas e insights atualizado com as taxas anuais.
+- Análise mensal ainda não iniciada.
+- Investigação da causa da melhora de margem em 2015 continua pendente.
+
+### Próximos Passos
+- Analisar a evolução cronológica usando o agrupamento por ano e mês.
+- Analisar sazonalidade agrupando os mesmos meses dos diferentes anos.
+- Investigar a melhora da margem em 2015 por categorias, descontos e regiões.
+- Iniciar as visualizações apenas depois da conclusão das etapas analíticas.
