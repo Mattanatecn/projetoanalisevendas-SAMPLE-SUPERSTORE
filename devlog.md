@@ -725,3 +725,153 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 - Analisar sazonalidade agrupando os mesmos meses dos diferentes anos.
 - Investigar a melhora da margem em 2015 por categorias, descontos e regiões.
 - Iniciar as visualizações apenas depois da conclusão das etapas analíticas.
+
+## 2026-07-23 - Dia 16: Desempenho Mensal e Análise por Categoria
+
+### Objetivos
+- Analisar o desempenho mensal da empresa ao longo dos quatro anos da base.
+- Identificar meses com prejuízo e os períodos com pior lucro e margem.
+- Entender por que lucro, margem e ticket médio precisam ser avaliados em conjunto.
+- Iniciar a análise de categorias utilizando a função reutilizável criada anteriormente.
+
+### Atividades Realizadas
+- Aplicação da função `resumir_por_grupo` com agrupamento pelas colunas `ano` e `mes`.
+- Criação de um resumo cronológico com os 48 meses existentes entre 2014 e 2017.
+- Uso de `.copy()` para preservar o resumo mensal original antes da inclusão de novas colunas.
+- Cálculo da variação mensal do faturamento com `pct_change()`.
+- Substituição da variação percentual do lucro pela diferença absoluta com `diff()`, pois a presença de valores negativos poderia gerar percentuais de difícil interpretação.
+- Criação de uma formatação específica para a tabela mensal, incluindo valores monetários, percentuais, quantidades e diferenças de lucro.
+- Filtragem dos meses com lucro negativo por meio da condição `lucro_total < 0`.
+- Criação de rankings mensais com `sort_values()` para localizar:
+  - os menores lucros totais;
+  - as menores margens globais.
+- Interpretação das diferenças entre lucro total, margem global, faturamento, ticket médio e volume de pedidos.
+- Início da seção `5. Categorias e subcategorias`.
+- Reutilização da função `resumir_por_grupo` para gerar o resumo por `Category`.
+- Comparação do desempenho de Technology, Furniture e Office Supplies.
+
+### Resultados da Análise Mensal
+- Julho de 2014 e janeiro de 2015 foram os meses que apresentaram prejuízo.
+- Janeiro de 2015 foi o período mais crítico:
+  - lucro aproximado de US$ 3.281,01 negativos;
+  - margem global de -18,05%;
+  - menor número de pedidos e menor quantidade vendida em comparação com julho de 2014.
+- O ticket médio de janeiro de 2015 foi superior ao de julho de 2014, mas isso não impediu que o mês apresentasse um prejuízo maior.
+- Fevereiro de 2014 apresentou lucro total baixo principalmente pelo baixo volume de vendas, enquanto sua margem de 19,08% indicou boa eficiência.
+- Novembro de 2016 apresentou faturamento elevado, mas margem global de apenas 5,05%.
+
+### Resultados da Análise por Categoria
+- Technology apresentou o maior faturamento, o maior lucro e a melhor margem global.
+- Furniture faturou mais que Office Supplies, mas gerou um lucro consideravelmente menor.
+- A margem global de Furniture foi de 2,49%, enquanto Office Supplies apresentou margem de 17,04%.
+- O resultado indica que Furniture possui baixa eficiência financeira e provavelmente contém subcategorias que reduzem seu desempenho.
+
+### Principais Insights
+- Um ticket médio alto não garante lucro, pois o valor médio dos pedidos não mostra quanto permanece como resultado financeiro.
+- O lucro total mostra o valor financeiro gerado, enquanto a margem mostra a eficiência desse resultado em relação ao faturamento.
+- Um mês com pouco lucro não é necessariamente ruim quando também possui baixo volume e uma margem saudável.
+- Faturamento elevado também não garante bom desempenho quando a margem permanece baixa.
+- A comparação entre Furniture e Office Supplies reforça que faturamento e lucro devem ser analisados em conjunto.
+- A análise mensal já respondeu às perguntas principais desta etapa, portanto não foi necessário aprofundá-la além do foco definido para o projeto.
+
+### Principais Aprendizados
+- O agrupamento por `['ano', 'mes']` mantém os meses separados dentro de cada ano e produz os 48 períodos da base.
+- `pct_change()` calcula uma variação relativa ao período anterior.
+- `diff()` calcula uma diferença absoluta e pode ser mais clara quando a métrica possui valores negativos.
+- Um filtro localiza os registros que atendem a uma condição, enquanto um ranking permite comparar os melhores ou piores resultados.
+- Lucro e margem respondem perguntas diferentes e não devem ser interpretados isoladamente.
+- Uma função genérica pode ser reutilizada em análises anuais, mensais e por categoria sem repetir os mesmos cálculos.
+
+### Ajustes Realizados
+- Correção do agrupamento mensal para considerar simultaneamente o ano e o mês.
+- Ajuste da análise para exibir e considerar os 48 meses, e não apenas um único ano.
+- Retirada da variação percentual do lucro mensal e adoção da diferença absoluta.
+- Criação de um dicionário de formatação próprio para o resumo mensal.
+
+### Status
+- Análise do desempenho mensal concluída no nível necessário para o projeto.
+- Meses com prejuízo identificados e interpretados.
+- Rankings de lucro e margem mensal concluídos.
+- Análise por categoria iniciada e interpretação geral registrada no notebook.
+- Visualizações continuam reservadas para uma etapa posterior.
+- Investigação específica da melhora da margem em 2015 continua pendente.
+
+### Próximos Passos
+- Aplicar `resumir_por_grupo` na coluna `Sub-Category`.
+- Identificar quais subcategorias explicam a baixa margem de Furniture.
+- Comparar faturamento, lucro e margem das principais subcategorias.
+
+## 2026-07-27 - Dia 17: Subcategorias e Investigação da Margem de 2015
+
+### Objetivos
+- Concluir a análise das categorias e subcategorias.
+- Identificar quais subcategorias explicam a baixa margem de Furniture.
+- Avançar na investigação da melhora da margem global em 2015.
+- Descobrir qual categoria e quais subcategorias mais contribuíram para essa melhora.
+
+### Atividades Realizadas
+- Aplicação da função `resumir_por_grupo` na coluna `Sub-Category`.
+- Comparação do faturamento, lucro, margem, quantidade vendida, pedidos e ticket médio das subcategorias.
+- Identificação das subcategorias lucrativas e deficitárias de Furniture.
+- Agrupamento simultâneo pelas colunas `ano` e `Category`.
+- Comparação das três categorias entre 2014 e 2015.
+- Identificação de Technology como principal categoria associada à melhora da margem em 2015.
+- Criação de um filtro para manter somente as vendas da categoria Technology.
+- Agrupamento dos dados filtrados pelas colunas `ano` e `Sub-Category`.
+- Comparação de Accessories, Copiers, Machines e Phones entre 2014 e 2015.
+- Registro das interpretações em células Markdown no notebook.
+
+### Resultados de Furniture
+- Bookcases apresentou prejuízo de aproximadamente US$ 3,47 mil e margem global de -3,02%.
+- Tables apresentou prejuízo de aproximadamente US$ 17,73 mil e margem global de -8,56%.
+- Tables foi a principal causa da baixa eficiência financeira de Furniture.
+- Chairs e Furnishings foram lucrativas e compensaram os prejuízos das outras duas subcategorias.
+- Apesar dessa compensação, Furniture terminou com margem global de apenas 2,49%.
+
+### Comparação entre 2014 e 2015
+- Furniture apresentou redução de lucro e margem em 2015.
+- Office Supplies apresentou aumento de lucro e margem.
+- Technology apresentou o maior aumento de lucro e a maior melhora de margem entre as categorias.
+- Em Technology:
+  - o faturamento diminuiu de aproximadamente US$ 175,28 mil para US$ 162,78 mil;
+  - o lucro aumentou de aproximadamente US$ 21,49 mil para US$ 33,50 mil;
+  - a margem aumentou de 12,26% para 20,58%;
+  - o aumento da margem foi de 8,32 pontos percentuais.
+
+### Resultados das Subcategorias de Technology
+- Copiers apresentou o maior aumento de lucro, com aproximadamente US$ 7,02 mil adicionais.
+- A margem de Copiers aumentou de 26,85% para 37,93%, uma melhora de 11,08 pontos percentuais.
+- Machines também apresentou melhora relevante de lucro e margem.
+- Accessories aumentou o lucro principalmente pelo crescimento do faturamento, embora sua margem tenha diminuído levemente.
+- Phones apresentou redução de lucro e não contribuiu para a melhora da categoria.
+
+### Principais Insights
+- Tables e Bookcases reduzem o desempenho de Furniture, mas Tables possui o maior impacto negativo.
+- Uma categoria pode terminar com lucro positivo e ainda apresentar baixa eficiência quando parte relevante de seu resultado é consumida por subcategorias deficitárias.
+- Technology foi a principal categoria associada à melhora da margem global em 2015.
+- A melhora de Technology foi impulsionada principalmente por Copiers, com contribuição adicional de Machines e Accessories.
+- A análise por categoria mostra onde ocorreu a melhora, enquanto a análise por subcategoria aproxima a investigação de sua causa.
+- Os resultados ainda precisam ser comparados com os descontos antes de considerar encerrada a investigação de 2015.
+
+### Principais Aprendizados
+- O agrupamento por `['ano', 'Category']` permite comparar cada categoria dentro de cada ano.
+- Filtrar uma categoria antes do agrupamento reduz a tabela ao recorte necessário para responder uma pergunta específica.
+- A diferença entre duas margens deve ser apresentada em pontos percentuais.
+- Aumento de lucro e aumento de margem não significam necessariamente a mesma coisa.
+- Encontrar a dimensão em que uma mudança aconteceu não comprova sozinho sua causa.
+
+### Status
+- Análise geral de categorias e subcategorias concluída.
+- Causa da baixa margem de Furniture identificada nas subcategorias Tables e Bookcases.
+- Evidências necessárias para confirmar a pergunta sobre a eficiência de Furniture obtidas.
+- Principal contribuição para a melhora de 2015 localizada em Technology, especialmente em Copiers.
+- Investigação da melhora da margem de 2015 permanece aberta até a análise dos descontos.
+- Análises regional e por segmento ainda não iniciadas.
+
+### Próximos Passos
+- Comparar as faixas de desconto de 2014 e 2015.
+- Verificar se a mudança nos descontos ajuda a explicar a melhora de Technology.
+- Analisar faturamento, lucro e margem por região.
+- Analisar faturamento, lucro e margem por segmento de clientes.
+- Atualizar as perguntas e insights após concluir as investigações pendentes.
+- Preparar a conclusão executiva da análise final.

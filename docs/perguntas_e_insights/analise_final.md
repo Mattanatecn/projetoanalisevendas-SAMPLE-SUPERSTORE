@@ -135,3 +135,89 @@ Os dados confirmam uma melhora de eficiência em 2015, mas ainda não explicam s
 
 ### Status
 Em investigação.
+
+## 5. Quais meses apresentaram o pior desempenho?
+
+### Pergunta de Negócio
+Quais meses tiveram prejuízo e por que o ticket médio, sozinho, não é suficiente para avaliar o desempenho mensal?
+
+### Método de Investigação
+- Agrupamento dos dados pelas colunas `ano` e `mes`.
+- Cálculo mensal de:
+  - faturamento total;
+  - lucro total;
+  - quantidade vendida;
+  - pedidos únicos;
+  - margem global;
+  - ticket médio.
+- Cálculo da variação do faturamento com `pct_change()`.
+- Cálculo da diferença absoluta do lucro com `diff()`.
+- Filtragem dos meses com `lucro_total < 0`.
+- Criação de rankings de lucro e margem global com `sort_values()`.
+
+### Resultado
+- Julho de 2014:
+  - faturamento de aproximadamente US$ 33,95 mil;
+  - prejuízo de aproximadamente US$ 841,48;
+  - margem global de -2,48%;
+  - 550 unidades vendidas;
+  - 65 pedidos;
+  - ticket médio de US$ 522,25.
+- Janeiro de 2015:
+  - faturamento de aproximadamente US$ 18,17 mil;
+  - prejuízo de aproximadamente US$ 3,28 mil;
+  - margem global de -18,05%;
+  - 236 unidades vendidas;
+  - 29 pedidos;
+  - ticket médio de US$ 626,69.
+- Fevereiro de 2014 apresentou lucro total baixo, mas margem global positiva de 19,08%.
+- Novembro de 2016 apresentou faturamento elevado, mas margem global de apenas 5,05%.
+
+### Insight
+Janeiro de 2015 foi o mês mais crítico, pois apresentou simultaneamente o maior prejuízo e a pior margem global.
+
+Seu ticket médio foi superior ao de julho de 2014, mas isso não representou melhor desempenho. Um pedido pode ter valor médio elevado e ainda gerar prejuízo.
+
+Lucro e margem também precisam ser interpretados em conjunto. Um lucro total baixo pode ser explicado por pouco volume, enquanto uma margem baixa indica que pouco lucro foi gerado em relação ao faturamento.
+
+### Status
+Confirmado.
+
+## 6. Qual categoria apresentou a menor eficiência financeira?
+
+### Pergunta de Negócio
+Qual categoria apresentou a relação mais fraca entre faturamento e lucro, e quais subcategorias podem estar reduzindo seu desempenho?
+
+### Método de Investigação
+- Aplicação da função `resumir_por_grupo` na coluna `Category`.
+- Comparação entre:
+  - faturamento total;
+  - lucro total;
+  - quantidade vendida;
+  - pedidos únicos;
+  - margem global;
+  - ticket médio.
+
+### Resultado Parcial
+- Technology:
+  - faturamento de aproximadamente US$ 836,15 mil;
+  - lucro de aproximadamente US$ 145,45 mil;
+  - margem global de 17,40%.
+- Office Supplies:
+  - faturamento de aproximadamente US$ 719,05 mil;
+  - lucro de aproximadamente US$ 122,49 mil;
+  - margem global de 17,04%.
+- Furniture:
+  - faturamento de aproximadamente US$ 742,00 mil;
+  - lucro de aproximadamente US$ 18,45 mil;
+  - margem global de 2,49%.
+
+### Insight Parcial
+Technology apresentou o maior faturamento, o maior lucro e a melhor margem global.
+
+Furniture faturou mais que Office Supplies, mas gerou um lucro consideravelmente menor. Sua margem de 2,49%, comparada a 17,04% de Office Supplies, evidencia baixa eficiência financeira.
+
+O resultado total da categoria ainda não mostra sua causa. É necessário analisar as subcategorias de Furniture para identificar quais delas reduzem sua margem.
+
+### Status
+Em investigação.
