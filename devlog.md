@@ -871,7 +871,143 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 ### Próximos Passos
 - Comparar as faixas de desconto de 2014 e 2015.
 - Verificar se a mudança nos descontos ajuda a explicar a melhora de Technology.
+
+## 2026-08-03 - Dia 18: Conclusão da Análise de Descontos em Technology
+
+### Objetivos
+- Verificar se as faixas de desconto ajudam a explicar a melhora do lucro e da margem de `Technology` em 2015.
+- Comparar o desempenho de vendas sem desconto, com desconto alto e com desconto agressivo entre 2014 e 2015.
+- Encerrar a investigação iniciada após a análise anual.
+
+### Atividades Realizadas
+- Agrupamento das vendas de `Technology` pelas colunas `ano` e `faixa_desconto` com a função `resumir_por_grupo`.
+- Comparação de faturamento, lucro, margem global, quantidade vendida, pedidos e ticket médio por faixa.
+- Separação dos resumos de 2014 e 2015.
+- Criação da tabela `diferencas_desconto` contendo:
+  - diferença de faturamento;
+  - diferença de lucro;
+  - variação da margem em pontos percentuais;
+  - diferença no número de pedidos.
+- Registro da interpretação em células Markdown no notebook.
+- Atualização de `docs/perguntas_e_insights/analise_final.md` com as conclusões de categorias, subcategorias e descontos.
+
+### Resultados
+- Vendas sem desconto:
+  - aumento de aproximadamente US$ 20,29 mil no faturamento;
+  - aumento de aproximadamente US$ 7,49 mil no lucro;
+  - melhora de 1,12 ponto percentual na margem;
+  - aumento de 21 pedidos.
+- Desconto alto:
+  - redução de aproximadamente US$ 8,71 mil no faturamento;
+  - aumento de aproximadamente US$ 4,71 mil no lucro;
+  - melhora de 6,96 pontos percentuais na margem;
+  - aumento de 22 pedidos.
+- Desconto agressivo:
+  - redução de aproximadamente US$ 24,08 mil no faturamento;
+  - piora de aproximadamente US$ 190,31 no lucro;
+  - queda de 93,01 pontos percentuais na margem;
+  - redução de um pedido.
+
+### Principais Insights
+- O maior aumento de lucro de `Technology` veio das vendas sem desconto.
+- As vendas com desconto alto também contribuíram para a melhora, pois aumentaram o lucro e a margem mesmo com menor faturamento.
+- Nem todo desconto foi prejudicial: a faixa de desconto alto apresentou resultado positivo e maior eficiência em 2015.
+- Os descontos agressivos continuaram gerando lucro e margem negativos e não contribuíram para a melhora de `Technology`.
+- A melhora de `Technology` em 2015 esteve associada ao crescimento das vendas sem desconto e à maior eficiência das vendas com desconto alto.
+
+### Principais Aprendizados
+- Diferenças absolutas de lucro são mais claras que variações percentuais quando existem valores negativos.
+- A diferença entre margens deve ser comunicada em pontos percentuais.
+- Menor faturamento não significa necessariamente pior desempenho quando lucro e margem aumentam.
+- Uma faixa com poucas vendas pode continuar causando impacto financeiro relevante.
+- Comparar faixas de desconto ajuda a distinguir descontos sustentáveis de descontos que destroem margem.
+
+### Status
+- Investigação da melhora da margem em 2015 concluída no recorte de categorias, subcategorias e descontos.
+- `Technology` confirmada como principal categoria associada à melhora.
+- `Copiers` identificada como principal subcategoria contribuidora.
+- Vendas sem desconto e descontos altos identificados como os principais componentes positivos.
+- Descontos agressivos confirmados como grupo financeiramente prejudicial.
+- Análises regional e por segmento ainda não iniciadas.
+
+### Próximos Passos
 - Analisar faturamento, lucro e margem por região.
 - Analisar faturamento, lucro e margem por segmento de clientes.
-- Atualizar as perguntas e insights após concluir as investigações pendentes.
-- Preparar a conclusão executiva da análise final.
+- Consolidar os principais insights em uma conclusão executiva.
+
+## 2026-08-05 - Dia 19: Encerramento da Análise Final
+
+### Objetivos
+- Concluir as análises regional e por segmento de clientes.
+- Consolidar os resultados obtidos com a base tratada.
+- Registrar as perguntas e insights que ainda estavam pendentes.
+- Revisar e padronizar a apresentação das tabelas do notebook.
+- Encerrar formalmente a etapa de análise final antes das visualizações.
+
+### Atividades Realizadas
+- Aplicação da função `resumir_por_grupo` na coluna `Region`.
+- Comparação de faturamento, lucro, quantidade vendida, pedidos, margem global e ticket médio entre as regiões.
+- Aplicação da função `resumir_por_grupo` na coluna `Segment`.
+- Comparação dos mesmos indicadores entre Consumer, Corporate e Home Office.
+- Interpretação dos resultados regionais e por segmento em células Markdown.
+- Criação da seção `8. Conclusão executiva` no notebook.
+- Consolidação dos principais resultados e recomendações de negócio.
+- Inclusão das perguntas sobre região e segmento em `docs/perguntas_e_insights/analise_final.md`.
+- Criação do dicionário reutilizável `formatacao_grupos`.
+- Formatação das tabelas de categoria, subcategoria, região, segmento, descontos e comparações temporais.
+- Limitação das tabelas comparativas aos anos de 2014 e 2015, mantendo os resumos completos disponíveis para cálculo.
+- Criação de uma formatação específica para diferenças de faturamento, lucro, margem em pontos percentuais e pedidos.
+- Remoção da saída intermediária e extensa do filtro de Technology.
+- Padronização dos títulos e subtítulos do notebook.
+
+### Resultados da Análise Regional
+- West apresentou o maior faturamento, o maior lucro e a melhor margem global, de 14,94%.
+- Central apresentou a menor margem regional, de 7,92%.
+- Central faturou mais que South, mas gerou menos lucro, indicando menor eficiência financeira.
+- East apresentou o segundo maior faturamento e lucro entre as regiões.
+
+### Resultados da Análise por Segmento
+- Consumer concentrou o maior faturamento, lucro, quantidade vendida e número de pedidos.
+- Apesar do maior resultado absoluto, Consumer apresentou a menor margem entre os segmentos, com 11,55%.
+- Home Office apresentou o menor faturamento e lucro total, mas alcançou a melhor margem global, de 14,03%.
+- Home Office também apresentou o maior ticket médio, de US$ 472,67.
+- Corporate ocupou uma posição intermediária em volume e eficiência.
+
+### Conclusões Consolidadas
+- A empresa apresentou resultado geral positivo, com aproximadamente US$ 2,30 milhões em faturamento, US$ 286,40 mil em lucro e margem global de 12,47%.
+- O lucro cresceu em todos os anos, mas faturamento, volume e margem não evoluíram sempre na mesma direção.
+- A melhora de 2015 esteve associada principalmente a Technology, especialmente Copiers, às vendas sem desconto e à maior eficiência das vendas com desconto alto.
+- Descontos agressivos permaneceram com lucro e margem negativos.
+- Furniture apresentou baixa eficiência principalmente por causa de Tables e Bookcases.
+- Janeiro de 2015 foi o mês mais crítico, mostrando que ticket médio elevado não garante lucro.
+- West apresentou o melhor desempenho regional, enquanto Central apresentou a menor eficiência.
+- Consumer liderou em resultado absoluto, enquanto Home Office se destacou pela eficiência.
+
+### Recomendações de Negócio
+- Revisar a política de descontos agressivos.
+- Investigar preços, custos e descontos de Tables e Bookcases.
+- Avaliar os fatores que reduzem a eficiência da região Central.
+- Preservar e estudar as práticas associadas ao desempenho de Technology e Copiers.
+- Monitorar faturamento, lucro e margem em conjunto nas próximas etapas do projeto.
+
+### Principais Aprendizados
+- Uma dimensão com maior faturamento ou lucro não é necessariamente a mais eficiente.
+- Margem global permite comparar a eficiência de grupos com volumes diferentes.
+- A função `resumir_por_grupo` pôde ser reutilizada nas análises anual, mensal, por categoria, subcategoria, região e segmento.
+- O refinamento progressivo de uma pergunta, do resultado geral até categorias, subcategorias e descontos, ajuda a localizar explicações sustentadas pelos dados.
+- Uma conclusão executiva deve sintetizar resultados, riscos e possíveis ações sem repetir todos os cálculos do notebook.
+
+### Status
+- Análise final da base tratada concluída.
+- Perguntas principais respondidas e documentadas.
+- Conclusão executiva registrada no notebook.
+- Tabelas revisadas e formatadas sem alterar os valores numéricos originais.
+- Estrutura de títulos revisada e padronizada.
+- Etapa de cálculos encerrada sem necessidade de novas investigações obrigatórias.
+- Visualizações e dashboard permanecem como próxima fase do projeto.
+
+### Próximos Passos
+- Planejar os gráficos que representam os principais insights.
+- Iniciar a etapa de visualização de dados.
+- Organizar os commits da conclusão da análise final.
+- Criar o README após a criação das visualizações e do dashboard.

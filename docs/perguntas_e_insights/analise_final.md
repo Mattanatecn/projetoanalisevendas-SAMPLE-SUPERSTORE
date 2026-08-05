@@ -115,26 +115,39 @@ Confirmado.
 ### Pergunta de Negócio
 Quais fatores fizeram o lucro e a margem aumentarem em 2015, apesar da redução do faturamento e do ticket médio?
 
-### Método de Investigação Planejado
-- Comparar 2014 e 2015 por:
-  - categorias e subcategorias vendidas;
-  - faixas de desconto;
-  - regiões;
-  - lucro e margem global.
-- Verificar se houve mudança na combinação de produtos vendidos ou redução de vendas com prejuízo.
+### Método de Investigação
+- Comparação de 2014 e 2015 por categoria.
+- Identificação da categoria com maior aumento de lucro e margem global.
+- Filtro das vendas de `Technology`.
+- Comparação das subcategorias de `Technology` entre 2014 e 2015.
+- Agrupamento das vendas de `Technology` por `ano` e `faixa_desconto`.
+- Cálculo das diferenças de faturamento, lucro, margem global e pedidos entre 2014 e 2015.
 
-### Resultado Parcial
+### Resultado
 - O faturamento diminuiu de aproximadamente US$ 484,25 mil para US$ 470,53 mil.
 - O lucro aumentou de aproximadamente US$ 49,54 mil para US$ 61,62 mil.
 - A margem global aumentou de 10,23% para 13,10%.
 - O ticket médio diminuiu de US$ 499,74 para US$ 453,31.
 - Em relação a 2014, o faturamento caiu 2,83% e o lucro cresceu 24,37%.
+- `Technology` foi a categoria com o maior aumento de lucro e a maior melhora de margem:
+  - o faturamento caiu de aproximadamente US$ 175,28 mil para US$ 162,78 mil;
+  - o lucro aumentou de aproximadamente US$ 21,49 mil para US$ 33,50 mil;
+  - a margem global aumentou de 12,26% para 20,58%, uma melhora de 8,32 pontos percentuais.
+- Entre as subcategorias de `Technology`, `Copiers` apresentou o maior aumento de lucro, com aproximadamente US$ 7,02 mil adicionais.
+- Na comparação por faixa de desconto:
+  - as vendas sem desconto aumentaram o faturamento em aproximadamente US$ 20,29 mil e o lucro em US$ 7,49 mil;
+  - as vendas com desconto alto tiveram redução de aproximadamente US$ 8,71 mil no faturamento, mas aumentaram o lucro em US$ 4,71 mil e a margem em 6,96 pontos percentuais;
+  - as vendas com desconto agressivo tiveram redução de aproximadamente US$ 24,08 mil no faturamento, piora de US$ 190,31 no lucro e queda de 93,01 pontos percentuais na margem.
 
-### Insight Parcial
-Os dados confirmam uma melhora de eficiência em 2015, mas ainda não explicam sua causa. Descontos, combinação de produtos e desempenho regional permanecem como hipóteses de investigação.
+### Insight
+A melhora da margem global em 2015 esteve associada principalmente ao desempenho de `Technology`, especialmente de `Copiers`.
+
+Dentro de `Technology`, o maior aumento de lucro veio das vendas sem desconto. As vendas com desconto alto também contribuíram, pois aumentaram o lucro e a margem mesmo com menor faturamento.
+
+Os descontos agressivos continuaram prejudiciais e não explicam a melhora da categoria. Mesmo com menor volume financeiro, essa faixa permaneceu com lucro e margem negativos.
 
 ### Status
-Em investigação.
+Confirmado dentro do recorte de categorias, subcategorias e faixas de desconto.
 
 ## 5. Quais meses apresentaram o pior desempenho?
 
@@ -197,8 +210,10 @@ Qual categoria apresentou a relação mais fraca entre faturamento e lucro, e qu
   - pedidos únicos;
   - margem global;
   - ticket médio.
+- Aplicação da função `resumir_por_grupo` na coluna `Sub-Category`.
+- Identificação das subcategorias lucrativas e deficitárias de `Furniture`.
 
-### Resultado Parcial
+### Resultado
 - Technology:
   - faturamento de aproximadamente US$ 836,15 mil;
   - lucro de aproximadamente US$ 145,45 mil;
@@ -211,13 +226,98 @@ Qual categoria apresentou a relação mais fraca entre faturamento e lucro, e qu
   - faturamento de aproximadamente US$ 742,00 mil;
   - lucro de aproximadamente US$ 18,45 mil;
   - margem global de 2,49%.
+- Dentro de `Furniture`:
+  - `Tables` apresentou prejuízo de aproximadamente US$ 17,73 mil e margem global de -8,56%;
+  - `Bookcases` apresentou prejuízo de aproximadamente US$ 3,47 mil e margem global de -3,02%;
+  - `Chairs` e `Furnishings` apresentaram lucro positivo e compensaram parte das perdas.
 
-### Insight Parcial
+### Insight
 Technology apresentou o maior faturamento, o maior lucro e a melhor margem global.
 
 Furniture faturou mais que Office Supplies, mas gerou um lucro consideravelmente menor. Sua margem de 2,49%, comparada a 17,04% de Office Supplies, evidencia baixa eficiência financeira.
 
-O resultado total da categoria ainda não mostra sua causa. É necessário analisar as subcategorias de Furniture para identificar quais delas reduzem sua margem.
+`Tables` é a principal causa da baixa eficiência financeira de `Furniture`, com contribuição negativa adicional de `Bookcases`. As subcategorias lucrativas evitam que a categoria termine com prejuízo, mas não são suficientes para produzir uma margem alta.
 
 ### Status
-Em investigação.
+Confirmado.
+
+## 7. Qual região apresentou o melhor desempenho e qual teve a menor eficiência?
+
+### Pergunta de Negócio
+Como faturamento, lucro e margem se distribuíram entre as regiões, e existe alguma região com faturamento relevante, mas baixa eficiência financeira?
+
+### Método de Investigação
+- Aplicação da função `resumir_por_grupo` na coluna `Region`.
+- Comparação entre:
+  - faturamento total;
+  - lucro total;
+  - quantidade vendida;
+  - pedidos únicos;
+  - margem global;
+  - ticket médio.
+
+### Resultado
+- West:
+  - faturamento de aproximadamente US$ 725,46 mil;
+  - lucro de aproximadamente US$ 108,42 mil;
+  - margem global de 14,94%.
+- East:
+  - faturamento de aproximadamente US$ 678,78 mil;
+  - lucro de aproximadamente US$ 91,52 mil;
+  - margem global de 13,48%.
+- Central:
+  - faturamento de aproximadamente US$ 501,24 mil;
+  - lucro de aproximadamente US$ 39,71 mil;
+  - margem global de 7,92%.
+- South:
+  - faturamento de aproximadamente US$ 391,72 mil;
+  - lucro de aproximadamente US$ 46,75 mil;
+  - margem global de 11,93%.
+
+### Insight
+West apresentou o melhor desempenho regional, reunindo o maior faturamento, o maior lucro e a melhor margem global.
+
+Central faturou mais que South, mas gerou menos lucro e apresentou a menor margem entre as regiões. Isso indica que seu volume financeiro não foi convertido em lucro com a mesma eficiência observada nas demais regiões.
+
+### Status
+Confirmado.
+
+## 8. Qual segmento apresentou maior resultado e qual foi o mais eficiente?
+
+### Pergunta de Negócio
+O segmento com maior faturamento e lucro também apresentou a melhor margem e o maior ticket médio?
+
+### Método de Investigação
+- Aplicação da função `resumir_por_grupo` na coluna `Segment`.
+- Comparação entre:
+  - faturamento total;
+  - lucro total;
+  - quantidade vendida;
+  - pedidos únicos;
+  - margem global;
+  - ticket médio.
+
+### Resultado
+- Consumer:
+  - faturamento de aproximadamente US$ 1,16 milhão;
+  - lucro de aproximadamente US$ 134,12 mil;
+  - margem global de 11,55%;
+  - ticket médio de US$ 449,11.
+- Corporate:
+  - faturamento de aproximadamente US$ 706,15 mil;
+  - lucro de aproximadamente US$ 91,98 mil;
+  - margem global de 13,03%;
+  - ticket médio de US$ 466,41.
+- Home Office:
+  - faturamento de aproximadamente US$ 429,65 mil;
+  - lucro de aproximadamente US$ 60,30 mil;
+  - margem global de 14,03%;
+  - ticket médio de US$ 472,67.
+
+### Insight
+Consumer concentrou o maior faturamento, lucro e volume de vendas, mas apresentou a menor margem global entre os segmentos.
+
+Home Office teve o menor faturamento e lucro total, porém apresentou a melhor margem e o maior ticket médio. Portanto, o segmento com maior resultado absoluto não foi o mais eficiente proporcionalmente.
+
+### Status
+Confirmado.
