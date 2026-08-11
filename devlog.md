@@ -1011,3 +1011,35 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 - Iniciar a etapa de visualização de dados.
 - Organizar os commits da conclusão da análise final.
 - Criar o README após a criação das visualizações e do dashboard.
+
+## 2026-08-10 - Dia 20: Início da Visualização de Dados
+
+### Objetivos
+- Iniciar a etapa de visualização dos resultados da análise final.
+- Praticar a escolha e a construção de gráficos com Seaborn e Matplotlib.
+- Transformar os principais insights em representações visuais claras.
+
+### Atividades Realizadas
+- Criação do notebook `notebooks/visualizacoes.ipynb`.
+- Carregamento da base tratada com a função `carregar_dados`.
+- Agrupamento e soma do lucro por ano.
+- Criação do gráfico de linha da evolução do lucro anual entre 2014 e 2017.
+- Formatação dos anos no eixo X e dos valores do lucro em milhares no eixo Y.
+- Agrupamento e soma do lucro por categoria.
+- Criação da estrutura inicial do gráfico de barras de lucro total por categoria.
+- Identificação de que a formatação de anos não deve ser reutilizada em um eixo categórico.
+
+### Principais Aprendizados
+- Gráficos de linha são adequados para acompanhar uma métrica ao longo do tempo.
+- Gráficos de barras facilitam a comparação de resultados entre categorias.
+- O `reset_index()` transforma o agrupamento em um DataFrame apropriado para o Seaborn.
+- A formatação dos eixos deve respeitar o tipo de dado apresentado: anos são numéricos e categorias são textuais.
+
+### Status
+- Primeiro gráfico de visualização concluído.
+- Gráfico de lucro por categoria iniciado e com a causa do problema de eixo identificada.
+- Personalização visual detalhada deixada para uma etapa posterior.
+
+### Próximos Passos
+- Criar visualizações para os demais insights prioritários da análise final.
+- Definir uma identidade visual comum depois que as estruturas dos gráficos estiverem prontas.
