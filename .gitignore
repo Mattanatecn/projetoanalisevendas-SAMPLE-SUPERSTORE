@@ -1,4 +1,4 @@
-# Ambientes Virtuais (Essencial!)
+# Ambientes Virtuais
 .venv*/
 venv/
 ENV/
