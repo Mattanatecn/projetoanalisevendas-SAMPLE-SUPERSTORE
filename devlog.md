@@ -1043,3 +1043,51 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 ### Próximos Passos
 - Criar visualizações para os demais insights prioritários da análise final.
 - Definir uma identidade visual comum depois que as estruturas dos gráficos estiverem prontas.
+
+## 2026-09-07 - Dia 21: Conclusão das Visualizações Principais
+
+### Objetivos
+- Concluir as visualizações prioritárias da análise final.
+- Representar visualmente resultado absoluto, eficiência e prejuízo.
+- Iniciar a padronização visual do notebook.
+
+### Atividades Realizadas
+- Conclusão do gráfico de lucro total por categoria.
+- Criação do gráfico de lucro das subcategorias de Furniture, com destaque para Tables e Bookcases.
+- Criação do gráfico de lucro por faixa de desconto.
+- Criação dos gráficos de lucro total e margem global por região.
+- Criação do gráfico de evolução do lucro nos 48 meses analisados.
+- Destaque visual dos meses com prejuízo no gráfico mensal.
+- Criação do gráfico de margem global por segmento.
+- Configuração de um tema global com `sns.set_theme`.
+- Definição de uma paleta reutilizável para dados principais, destaques, prejuízos e linhas de referência.
+- Aplicação de cores condicionais para diferenciar resultados positivos, prejuízos e pontos de atenção.
+- Validação da execução das células do notebook sem erros.
+
+### Insights Representados
+- O lucro anual cresceu entre 2014 e 2017.
+- Technology apresentou o maior lucro entre as categorias.
+- Tables e Bookcases reduziram o resultado de Furniture.
+- Algumas faixas de desconto apresentaram resultado negativo.
+- West liderou o lucro e a margem regional, enquanto Central apresentou a menor margem.
+- Julho de 2014 e janeiro de 2015 foram os meses com prejuízo.
+- Home Office apresentou a maior margem global entre os segmentos.
+
+### Principais Aprendizados
+- Cores devem comunicar significado e não servir apenas como decoração.
+- O vermelho foi reservado para prejuízos, enquanto a cor de destaque identifica pontos relevantes sem resultado negativo.
+- `ax.patches` e `zip()` permitem relacionar cada barra ao valor que ela representa.
+- Linhas de referência ajudam a separar visualmente lucro e prejuízo.
+- Uma identidade visual definida no início reduz repetição e mantém consistência entre gráficos.
+
+### Status
+- O notebook possui oito visualizações principais.
+- As estruturas dos gráficos e a padronização de cores foram concluídas.
+- Os principais resultados da análise final estão representados visualmente.
+- A revisão final de espaçamento e legibilidade ficou pendente.
+
+### Próximos Passos
+- Ajustar o espaçamento global e revisar a legibilidade dos títulos, eixos e legendas.
+- Executar e revisar visualmente o notebook completo.
+- Encerrar a branch de visualização depois da revisão final.
+- Iniciar o desenvolvimento do dashboard em uma branch própria.
