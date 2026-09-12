@@ -1011,3 +1011,116 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 - Iniciar a etapa de visualização de dados.
 - Organizar os commits da conclusão da análise final.
 - Criar o README após a criação das visualizações e do dashboard.
+
+## 2026-08-10 - Dia 20: Início da Visualização de Dados
+
+### Objetivos
+- Iniciar a etapa de visualização dos resultados da análise final.
+- Praticar a escolha e a construção de gráficos com Seaborn e Matplotlib.
+- Transformar os principais insights em representações visuais claras.
+
+### Atividades Realizadas
+- Criação do notebook `notebooks/visualizacoes.ipynb`.
+- Carregamento da base tratada com a função `carregar_dados`.
+- Agrupamento e soma do lucro por ano.
+- Criação do gráfico de linha da evolução do lucro anual entre 2014 e 2017.
+- Formatação dos anos no eixo X e dos valores do lucro em milhares no eixo Y.
+- Agrupamento e soma do lucro por categoria.
+- Criação da estrutura inicial do gráfico de barras de lucro total por categoria.
+- Identificação de que a formatação de anos não deve ser reutilizada em um eixo categórico.
+
+### Principais Aprendizados
+- Gráficos de linha são adequados para acompanhar uma métrica ao longo do tempo.
+- Gráficos de barras facilitam a comparação de resultados entre categorias.
+- O `reset_index()` transforma o agrupamento em um DataFrame apropriado para o Seaborn.
+- A formatação dos eixos deve respeitar o tipo de dado apresentado: anos são numéricos e categorias são textuais.
+
+### Status
+- Primeiro gráfico de visualização concluído.
+- Gráfico de lucro por categoria iniciado e com a causa do problema de eixo identificada.
+- Personalização visual detalhada deixada para uma etapa posterior.
+
+### Próximos Passos
+- Criar visualizações para os demais insights prioritários da análise final.
+- Definir uma identidade visual comum depois que as estruturas dos gráficos estiverem prontas.
+
+## 2026-09-07 - Dia 21: Conclusão das Visualizações Principais
+
+### Objetivos
+- Concluir as visualizações prioritárias da análise final.
+- Representar visualmente resultado absoluto, eficiência e prejuízo.
+- Iniciar a padronização visual do notebook.
+
+### Atividades Realizadas
+- Conclusão do gráfico de lucro total por categoria.
+- Criação do gráfico de lucro das subcategorias de Furniture, com destaque para Tables e Bookcases.
+- Criação do gráfico de lucro por faixa de desconto.
+- Criação dos gráficos de lucro total e margem global por região.
+- Criação do gráfico de evolução do lucro nos 48 meses analisados.
+- Destaque visual dos meses com prejuízo no gráfico mensal.
+- Criação do gráfico de margem global por segmento.
+- Configuração de um tema global com `sns.set_theme`.
+- Definição de uma paleta reutilizável para dados principais, destaques, prejuízos e linhas de referência.
+- Aplicação de cores condicionais para diferenciar resultados positivos, prejuízos e pontos de atenção.
+- Validação da execução das células do notebook sem erros.
+
+### Insights Representados
+- O lucro anual cresceu entre 2014 e 2017.
+- Technology apresentou o maior lucro entre as categorias.
+- Tables e Bookcases reduziram o resultado de Furniture.
+- Algumas faixas de desconto apresentaram resultado negativo.
+- West liderou o lucro e a margem regional, enquanto Central apresentou a menor margem.
+- Julho de 2014 e janeiro de 2015 foram os meses com prejuízo.
+- Home Office apresentou a maior margem global entre os segmentos.
+
+### Principais Aprendizados
+- Cores devem comunicar significado e não servir apenas como decoração.
+- O vermelho foi reservado para prejuízos, enquanto a cor de destaque identifica pontos relevantes sem resultado negativo.
+- `ax.patches` e `zip()` permitem relacionar cada barra ao valor que ela representa.
+- Linhas de referência ajudam a separar visualmente lucro e prejuízo.
+- Uma identidade visual definida no início reduz repetição e mantém consistência entre gráficos.
+
+### Status
+- O notebook possui oito visualizações principais.
+- As estruturas dos gráficos e a padronização de cores foram concluídas.
+- Os principais resultados da análise final estão representados visualmente.
+- A revisão final de espaçamento e legibilidade ficou pendente.
+
+### Próximos Passos
+- Ajustar o espaçamento global e revisar a legibilidade dos títulos, eixos e legendas.
+- Executar e revisar visualmente o notebook completo.
+- Encerrar a branch de visualização depois da revisão final.
+- Iniciar o desenvolvimento do dashboard em uma branch própria.
+
+## 2026-09-12 - Dia 22: Revisão Final das Visualizações
+
+### Objetivos
+- Concluir a padronização visual dos gráficos.
+- Revisar o espaçamento, a hierarquia dos títulos e a legibilidade do notebook.
+- Validar a execução completa antes de encerrar a etapa de visualização.
+
+### Atividades Realizadas
+- Ativação do ajuste automático de layout com `figure.constrained_layout.use`.
+- Definição global dos títulos em negrito e tamanho 14.
+- Inclusão de espaçamento entre os títulos e as áreas dos gráficos.
+- Revisão dos títulos, eixos, legendas, formatos monetários e percentuais.
+- Execução completa do notebook para verificar a ordem e a independência das células.
+- Conferência visual dos oito gráficos sem identificação de erros ou elementos cortados.
+
+### Principais Aprendizados
+- Configurações globais com `plt.rcParams` evitam a repetição de ajustes em cada gráfico.
+- Executar o notebook desde o início confirma que as células não dependem de estados antigos do kernel.
+- A hierarquia entre títulos e rótulos melhora a leitura sem adicionar elementos desnecessários.
+- A revisão visual final é necessária mesmo quando o código executa sem erros.
+
+### Status
+- Oito visualizações concluídas e revisadas.
+- Identidade visual e espaçamento padronizados.
+- Notebook executado integralmente sem erros.
+- Etapa de visualização de dados concluída.
+
+### Próximos Passos
+- Registrar os ajustes finais em um commit.
+- Fazer o merge da branch `feature/visualizacao-dados` na `main`.
+- Criar uma branch específica para o dashboard.
+- Planejar a estrutura, os indicadores e os filtros do dashboard.
