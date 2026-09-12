@@ -1091,3 +1091,36 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 - Executar e revisar visualmente o notebook completo.
 - Encerrar a branch de visualização depois da revisão final.
 - Iniciar o desenvolvimento do dashboard em uma branch própria.
+
+## 2026-09-12 - Dia 22: Revisão Final das Visualizações
+
+### Objetivos
+- Concluir a padronização visual dos gráficos.
+- Revisar o espaçamento, a hierarquia dos títulos e a legibilidade do notebook.
+- Validar a execução completa antes de encerrar a etapa de visualização.
+
+### Atividades Realizadas
+- Ativação do ajuste automático de layout com `figure.constrained_layout.use`.
+- Definição global dos títulos em negrito e tamanho 14.
+- Inclusão de espaçamento entre os títulos e as áreas dos gráficos.
+- Revisão dos títulos, eixos, legendas, formatos monetários e percentuais.
+- Execução completa do notebook para verificar a ordem e a independência das células.
+- Conferência visual dos oito gráficos sem identificação de erros ou elementos cortados.
+
+### Principais Aprendizados
+- Configurações globais com `plt.rcParams` evitam a repetição de ajustes em cada gráfico.
+- Executar o notebook desde o início confirma que as células não dependem de estados antigos do kernel.
+- A hierarquia entre títulos e rótulos melhora a leitura sem adicionar elementos desnecessários.
+- A revisão visual final é necessária mesmo quando o código executa sem erros.
+
+### Status
+- Oito visualizações concluídas e revisadas.
+- Identidade visual e espaçamento padronizados.
+- Notebook executado integralmente sem erros.
+- Etapa de visualização de dados concluída.
+
+### Próximos Passos
+- Registrar os ajustes finais em um commit.
+- Fazer o merge da branch `feature/visualizacao-dados` na `main`.
+- Criar uma branch específica para o dashboard.
+- Planejar a estrutura, os indicadores e os filtros do dashboard.
