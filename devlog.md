@@ -1124,3 +1124,69 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 - Fazer o merge da branch `feature/visualizacao-dados` na `main`.
 - Criar uma branch específica para o dashboard.
 - Planejar a estrutura, os indicadores e os filtros do dashboard.
+
+## 2026-10-02 - Dia 23: Criação do Dashboard em Streamlit
+
+### Objetivos
+- Iniciar o desenvolvimento do dashboard interativo do projeto.
+- Transformar os indicadores e insights validados na análise em uma página executiva.
+- Permitir que os resultados fossem explorados por meio de filtros.
+
+### Atividades Realizadas
+- Criação do arquivo `dashboard/app.py`.
+- Configuração da página do Streamlit com layout amplo.
+- Construção de um caminho independente do diretório de execução com `pathlib.Path`.
+- Criação da função `carregar_dados` para ler a base tratada e converter as colunas de data.
+- Uso de `@st.cache_data` para evitar novas leituras do CSV a cada interação.
+- Criação de filtros por ano, região, categoria e segmento na barra lateral.
+- Criação da função `filtrar_dados` para aplicar simultaneamente os filtros selecionados.
+- Criação da função `calcular_kpis`.
+- Inclusão dos KPIs de faturamento, lucro, margem global, pedidos, quantidade vendida e ticket médio.
+- Reutilização da lógica de resumo por grupo para calcular faturamento, lucro e margem.
+- Criação de seis gráficos interativos com Plotly:
+  - evolução mensal do lucro;
+  - lucro por categoria;
+  - margem global por região;
+  - lucro por faixa de desconto;
+  - margem global por segmento;
+  - lucro por subcategoria.
+- Aplicação de cores condicionais para diferenciar lucro, prejuízo e pontos de atenção.
+- Inclusão de uma tabela detalhada em uma área recolhível.
+- Inclusão da opção de download dos dados filtrados em CSV.
+- Criação de uma mensagem para combinações de filtros sem registros.
+
+### Validações Realizadas
+- Execução automatizada do aplicativo sem exceções.
+- Confirmação da presença dos seis KPIs, quatro filtros, seis gráficos e tabela detalhada.
+- Teste do filtro de 2015, que reproduziu os resultados registrados na análise final.
+- Teste de uma seleção sem dados, com exibição correta da mensagem de aviso.
+- Teste manual dos filtros, gráficos, detalhes e download sem identificação de erros.
+
+### Decisões Técnicas
+- Uso da base tratada como fonte única do dashboard.
+- Uso do Plotly para permitir interação e consulta de valores nos gráficos.
+- Aplicação dos filtros antes do cálculo dos KPIs e das visualizações.
+- Cálculo da margem global pela divisão do lucro total pelo faturamento total do recorte.
+- Manutenção do dashboard em um único arquivo nesta primeira versão, com funções para separar responsabilidades e reduzir repetição.
+- Uso do `localhost` apenas para desenvolvimento e validação local.
+
+### Principais Aprendizados
+- O Streamlit reexecuta o script quando o usuário interage com os filtros.
+- O cache reduz leituras e transformações repetidas durante essas reexecuções.
+- Um caminho construído com `Path` torna a aplicação menos dependente do diretório usado para iniciá-la.
+- KPIs e gráficos precisam usar o mesmo DataFrame filtrado para manter resultados consistentes.
+- Estados sem dados devem ser tratados para evitar erros e comunicar o resultado do filtro ao usuário.
+- A publicação será necessária para transformar o endereço local em uma URL compartilhável.
+
+### Status
+- Primeira versão funcional do dashboard concluída.
+- Filtros, KPIs, gráficos, tabela e download funcionando corretamente.
+- Dashboard validado localmente.
+- Alterações ainda não registradas em commit.
+
+### Próximos Passos
+- Revisar os arquivos modificados e criar os commits da primeira versão do dashboard.
+- Enviar a branch `feature/dashboard-streamlit` para o GitHub.
+- Abrir um Pull Request quando o dashboard estiver pronto para integração.
+- Publicar o aplicativo no Streamlit Community Cloud depois do merge na `main`.
+- Criar o `README.md` com instruções, imagens e o endereço público do dashboard.
