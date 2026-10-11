@@ -24,7 +24,7 @@ A aplicação apresenta:
 - gráficos de evolução temporal e rentabilidade;
 - tabela detalhada e download dos dados filtrados.
 
-> O endereço público e uma imagem do dashboard serão adicionados após a publicação.
+**Dashboard online:** [Acessar o dashboard interativo](https://sample-superstore-dashboard-vendas.streamlit.app/)
 
 ## Problema de Negócio
 
