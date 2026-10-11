@@ -25,6 +25,7 @@ A aplicação apresenta:
 - tabela detalhada e download dos dados filtrados.
 
 **Dashboard online:** [Acessar o dashboard interativo](https://sample-superstore-dashboard-vendas.streamlit.app/)
+[![Dashboard Sample Superstore](imagens/dashboard.png)](https://sample-superstore-dashboard-vendas.streamlit.app/)
 
 ## Problema de Negócio
 
