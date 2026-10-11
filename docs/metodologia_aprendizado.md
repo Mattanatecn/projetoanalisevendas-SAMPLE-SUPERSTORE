@@ -1,26 +1,30 @@
-# COMANDOS PARA USAR NO CLAUDE CODE
+# Metodologia de Aprendizado do Projeto
 
-## INÍCIO DO PROJETO
+Este documento registra o roteiro utilizado durante o desenvolvimento do projeto
+Sample Superstore. A metodologia prioriza o raciocínio analítico, a investigação
+manual e a aprendizagem progressiva antes da automação.
 
-Vamos começar o projeto.
+## Princípios da Metodologia
 
-Quero seguir exatamente a metodologia definida no mentor_prompt.md.
+- Começar a exploração no Excel antes de migrar para Python.
+- Compreender o problema de negócio antes de escrever código.
+- Formular perguntas, hipóteses e interpretações antes de receber respostas.
+- Implementar cada etapa manualmente e solicitar revisão depois da tentativa.
+- Conectar análise, visualização e recomendações de negócio.
+- Registrar decisões, dificuldades e aprendizados ao longo do projeto.
 
-Dataset utilizado:
-Sample Superstore Dataset
-https://www.kaggle.com/datasets/vivek468/superstore-dataset-final
+## Dataset Utilizado
 
-IMPORTANTE:
-Quero começar primeiro no Excel antes de ir para Python.
-Quero desenvolver pensamento analítico antes da programação.
+[Sample Superstore Dataset](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final)
 
-Quero aprender como um analista de dados profissional trabalha.
-Não faça tudo pronto.
-Quero tentar primeiro e depois receber revisão.
+## Início do Projeto
+
+Objetivo inicial: aprender como um analista de dados trabalha, desenvolvendo
+pensamento analítico antes de aprofundar a programação.
 
 ---
 
-## ENTENDIMENTO DO DATASET
+## Entendimento do Dataset
 
 Quero começar entendendo o dataset.
 
@@ -35,7 +39,7 @@ Não vá para código ainda.
 
 ---
 
-## PERGUNTAS DE NEGÓCIO E ANÁLISE NO EXCEL
+## Perguntas de Negócio e Análise no Excel
 
 Quero aprender a pensar como um analista de dados durante a exploração no Excel.
 
@@ -43,42 +47,42 @@ Antes de qualquer código, me ajude a desenvolver pensamento analítico.
 
 Sempre me incentive a responder perguntas como:
 
-### VISÃO GERAL
+### Visão Geral
 - Qual é o faturamento total?
 - Qual é o lucro total?
 - A empresa está tendo prejuízo em algum cenário?
 - Existem tendências visíveis?
 
-### PRODUTOS E CATEGORIAS
+### Produtos e Categorias
 - Quais categorias vendem mais?
 - Quais categorias dão mais lucro?
 - Existem produtos com muita venda e pouco lucro?
 - Quais produtos têm prejuízo?
 - Quais produtos são mais rentáveis?
 
-### REGIÕES E LOCALIZAÇÃO
+### Regiões e Localização
 - Qual região vende mais?
 - Qual região gera mais lucro?
 - Existe região com alto faturamento e baixo lucro?
 - Existem padrões geográficos importantes?
 
-### CLIENTES
+### Clientes
 - Quais clientes mais compram?
 - Existem clientes pouco lucrativos?
 - Existe concentração de vendas em poucos clientes?
 
-### TEMPO
+### Tempo
 - Existe crescimento ao longo dos meses?
 - Existem meses mais fortes?
 - Existe sazonalidade?
 - Há períodos de queda?
 
-### DESCONTOS E LUCRO
+### Descontos e Lucro
 - Descontos aumentam vendas?
 - Descontos estão reduzindo o lucro?
 - Existe relação entre desconto e prejuízo?
 
-### PENSAMENTO ANALÍTICO
+### Pensamento Analítico
 
 Durante a análise:
 - faça perguntas guiadas
@@ -94,7 +98,7 @@ Explique como analistas profissionais pensam durante a exploração de dados.
 
 ---
 
-## ENSINO PRÁTICO DE EXCEL
+## Ensino Prático de Excel
 
 Durante toda a etapa de Excel:
 
@@ -144,7 +148,7 @@ Quero aprender Excel aplicado à análise de dados profissionalmente.
 
 ---
 
-## EXPLORAÇÃO NO EXCEL
+## Exploração no Excel
 
 Vamos iniciar a exploração no Excel.
 
@@ -186,7 +190,7 @@ Quero tentar primeiro e depois você revisa minhas conclusões.
 
 ---
 
-## DASHBOARD NO EXCEL
+## Dashboard no Excel
 
 Quero aprender a criar dashboards profissionais no Excel antes do Python.
 
@@ -211,7 +215,7 @@ Quero criar um dashboard inicial no Excel antes de migrar para Python e Streamli
 
 ---
 
-## ATUALIZAÇÃO AUTOMÁTICA NO EXCEL
+## Atualização Automática no Excel
 
 Quero aprender como atualizar os dados automaticamente no Excel.
 
@@ -226,7 +230,7 @@ Explique como empresas usam isso na prática.
 
 ---
 
-## CONFIGURAÇÃO DO AMBIENTE
+## Configuração do Ambiente
 
 Quero configurar o ambiente profissional no VS Code.
 
@@ -244,7 +248,7 @@ Explique cada etapa antes de executar.
 
 ---
 
-## ARQUITETURA DO PROJETO
+## Arquitetura do Projeto
 
 Quero estruturar o projeto profissionalmente.
 
@@ -286,7 +290,7 @@ Explique como projetos reais são organizados.
 
 ---
 
-## GITHUB
+## GitHub
 
 Quero iniciar o versionamento profissional com Git e GitHub.
 
@@ -303,7 +307,7 @@ Explique cada comando antes.
 
 ---
 
-## TRANSIÇÃO DO EXCEL PARA PYTHON
+## Transição do Excel para Python
 
 Agora quero começar a migrar a análise do Excel para Python.
 
@@ -317,7 +321,7 @@ Conecte tudo com o que foi feito anteriormente no Excel.
 
 ---
 
-## PANDAS
+## Pandas
 
 Vamos iniciar Pandas.
 
@@ -334,7 +338,7 @@ Não faça tudo pronto.
 
 ---
 
-## EXPLORAÇÃO COM PANDAS
+## Exploração com Pandas
 
 Quero começar a explorar o dataset com Pandas.
 
@@ -358,7 +362,7 @@ Explique como transformar análises em indicadores visuais para dashboards.
 
 ---
 
-## VISUALIZAÇÃO DE DADOS
+## Visualização de Dados
 
 Quero começar visualização de dados.
 
@@ -380,7 +384,7 @@ Ensine:
 
 ---
 
-## STREAMLIT
+## Streamlit
 
 Quero iniciar o dashboard com Streamlit.
 
@@ -403,7 +407,7 @@ Criar um dashboard profissional de portfólio.
 
 ---
 
-## ATUALIZAÇÃO AUTOMÁTICA DOS DADOS NO PYTHON
+## Atualização Automática dos Dados no Python
 
 Quero aprender como atualizar os dados automaticamente no Python.
 
@@ -418,7 +422,7 @@ Explique como empresas fazem isso na prática.
 
 ---
 
-## NOTEBOOKS VS SCRIPTS
+## Notebooks vs. Scripts
 
 Explique:
 - quando usar notebook
@@ -443,7 +447,7 @@ Me ensine:
 
 ---
 
-## DEVLOG
+## Devlog
 
 Me ajude a registrar o progresso no devlog.md.
 
@@ -454,7 +458,7 @@ Explique:
 
 ---
 
-## CONTINUAR PROJETO
+## Continuar Projeto
 
 Continue de onde paramos.
 
@@ -468,7 +472,7 @@ Próximo objetivo:
 
 ---
 
-## DIFICULDADE
+## Dificuldade
 
 Não estou entendendo essa parte.
 
@@ -480,7 +484,7 @@ Explique:
 
 ---
 
-## DEBUGGING
+## Debugging
 
 Estou com erro no código.
 
@@ -494,7 +498,7 @@ Explique como um desenvolvedor profissional investigaria esse problema.
 
 ---
 
-## REVISÃO DE CÓDIGO
+## Revisão de Código
 
 Quero revisão do meu código.
 
@@ -512,7 +516,7 @@ Não reescreva tudo do zero.
 
 ---
 
-## FINALIZAÇÃO DO PROJETO
+## Finalização do Projeto
 
 Quero finalizar o projeto profissionalmente.
 
