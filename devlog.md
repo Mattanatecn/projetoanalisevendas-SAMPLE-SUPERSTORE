@@ -1256,3 +1256,23 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 - Abrir um Pull Request e fazer o merge na `main`.
 - Publicar o dashboard no Streamlit Community Cloud.
 - Adicionar ao README o endereço público e uma imagem do dashboard.
+
+## 2026-10-11 - Dia 25: Publicação do Dashboard
+
+### Atividades Realizadas
+- Merge da revisão de pré-publicação na branch `main`.
+- Publicação do dashboard no Streamlit Community Cloud.
+- Configuração da branch `main` e do arquivo `dashboard/app.py`.
+- Definição da URL pública do projeto.
+- Inclusão do endereço público no README.
+
+### Validações Realizadas
+- Aplicação publicada sem erro de execução.
+- Endereço público respondendo corretamente.
+- Dashboard disponível em:
+  https://sample-superstore-dashboard-vendas.streamlit.app/
+
+### Status
+- Dashboard publicado e acessível publicamente.
+- Projeto disponível para apresentação no GitHub e no portfólio.
+- Inclusão de uma imagem do dashboard permanece opcional.
