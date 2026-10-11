@@ -272,7 +272,7 @@ for coluna, (rotulo, valor) in zip(colunas_kpi, metricas):
 st.subheader("Evolução")
 st.plotly_chart(
     criar_grafico_mensal(df_filtrado),
-    use_container_width=True,
+    width="stretch",
     config=CONFIG_GRAFICO,
     key="lucro_mensal",
 )
@@ -286,7 +286,7 @@ with coluna_categoria:
             "Category",
             "Lucro por categoria",
         ),
-        use_container_width=True,
+        width="stretch",
         config=CONFIG_GRAFICO,
         key="lucro_categoria",
     )
@@ -298,7 +298,7 @@ with coluna_regiao:
             "Region",
             "Margem global por região",
         ),
-        use_container_width=True,
+        width="stretch",
         config=CONFIG_GRAFICO,
         key="margem_regiao",
     )
@@ -312,7 +312,7 @@ with coluna_desconto:
             "Lucro por faixa de desconto",
             ordem=ORDEM_DESCONTO,
         ),
-        use_container_width=True,
+        width="stretch",
         config=CONFIG_GRAFICO,
         key="lucro_desconto",
     )
@@ -324,7 +324,7 @@ with coluna_segmento:
             "Segment",
             "Margem global por segmento",
         ),
-        use_container_width=True,
+        width="stretch",
         config=CONFIG_GRAFICO,
         key="margem_segmento",
     )
@@ -336,7 +336,7 @@ st.plotly_chart(
         "Lucro por subcategoria",
         altura=560,
     ),
-    use_container_width=True,
+    width="stretch",
     config=CONFIG_GRAFICO,
     key="lucro_subcategoria",
 )
@@ -372,7 +372,7 @@ with st.expander("Dados detalhados"):
     )
     st.dataframe(
         tabela,
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         column_config={
             "Data do pedido": st.column_config.DateColumn(format="DD/MM/YYYY"),
