@@ -1190,3 +1190,69 @@ Este arquivo registra a evolução do projeto, as decisões tomadas, os aprendiz
 - Abrir um Pull Request quando o dashboard estiver pronto para integração.
 - Publicar o aplicativo no Streamlit Community Cloud depois do merge na `main`.
 - Criar o `README.md` com instruções, imagens e o endereço público do dashboard.
+
+## 2026-10-11 - Dia 24: Revisão de Pré-publicação
+
+### Objetivos
+- Revisar o projeto completo antes da publicação.
+- Verificar a estrutura, os dados, os notebooks, o dashboard e as dependências.
+- Organizar a documentação para apresentação pública no GitHub.
+- Identificar ajustes de compatibilidade e reprodutibilidade.
+
+### Atividades Realizadas
+- Confirmação do merge da branch `feature/dashboard-streamlit` na `main`.
+- Criação da branch `feature/publicacao-readme` para a etapa final do projeto.
+- Revisão da estrutura de pastas e dos arquivos rastreados pelo Git.
+- Revisão do `prompt.md` para garantir que a finalização continuasse seguindo a metodologia de aprendizado do projeto.
+- Revisão do código de `dashboard/app.py` e `src/limpeza.py`.
+- Validação dos três notebooks, sem erros salvos e com todas as células executadas.
+- Validação da base tratada, com 9.994 registros, sem valores nulos, linhas duplicadas ou datas incoerentes.
+- Confirmação dos resultados gerais de faturamento, lucro e quantidade de pedidos.
+- Execução automatizada do dashboard com `AppTest`.
+- Confirmação dos seis KPIs, seis gráficos interativos e botão de download.
+- Substituição de `use_container_width=True` por `width="stretch"` em sete pontos do dashboard.
+- Nova execução do dashboard sem exceções e sem os avisos de descontinuação.
+- Redução do `requirements.txt` para as dependências diretas do projeto.
+- Conversão do `requirements.txt` de UTF-16 para UTF-8.
+- Validação das dependências com o `pip`.
+- Transformação do `prompt.md` em `docs/metodologia_aprendizado.md`.
+- Remoção das referências ao Claude Code e ao arquivo inexistente `mentor_prompt.md`.
+- Inclusão de uma introdução, dos princípios da metodologia e do link do dataset.
+- Padronização dos títulos da documentação da metodologia.
+- Criação do `README.md` com apresentação do projeto, problema de negócio, perguntas, indicadores, insights e recomendações.
+- Documentação das tecnologias, estrutura de pastas, instruções de execução, fonte dos dados e metodologia.
+
+### Validações Realizadas
+- `dashboard/app.py` e `src/limpeza.py` compilados sem erros de sintaxe.
+- Dashboard executado sem exceções nos testes automatizados.
+- Seis métricas, seis gráficos e um botão de download encontrados no aplicativo.
+- Dependências instaladas sem conflitos identificados pelo `pip check`.
+- `requirements.txt` lido corretamente como UTF-8.
+- Documentação da metodologia sem referências antigas ou links internos inexistentes.
+- Links internos do README validados sem arquivos ausentes.
+- Verificação do Git sem problemas de espaços em branco nas alterações.
+
+### Principais Aprendizados
+- Uma revisão de pré-publicação precisa avaliar código, dados, dependências, documentação e versionamento.
+- Avisos de descontinuação devem ser corrigidos antes que uma atualização da biblioteca quebre a aplicação.
+- O `requirements.txt` deve listar dependências diretas, e não todas as bibliotecas internas do ambiente virtual.
+- Arquivos de configuração devem usar UTF-8 para facilitar leitura, comparação no Git e publicação em outros sistemas.
+- Documentos internos podem ser reorganizados para explicar publicamente a metodologia utilizada no projeto.
+- O histórico do devlog deve preservar o estado de cada etapa e receber novas entradas quando esse estado mudar.
+
+### Status
+- Dashboard integrado à `main` e funcionando localmente.
+- Compatibilidade do dashboard com a API atual do Streamlit revisada.
+- Dependências simplificadas e convertidas para UTF-8.
+- Metodologia de aprendizado reorganizada na pasta `docs`.
+- Script `src/limpeza.py` mantido sem alterações por estar funcional e representar a etapa de aprendizado em que foi criado.
+- README profissional criado e validado.
+- Alterações da revisão ainda não registradas em commit.
+- Publicação, link público e imagem do dashboard ainda pendentes.
+
+### Próximos Passos
+- Realizar uma última execução manual do dashboard.
+- Registrar as alterações da branch `feature/publicacao-readme` em commit.
+- Abrir um Pull Request e fazer o merge na `main`.
+- Publicar o dashboard no Streamlit Community Cloud.
+- Adicionar ao README o endereço público e uma imagem do dashboard.
